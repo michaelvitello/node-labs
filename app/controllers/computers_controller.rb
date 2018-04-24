@@ -10,8 +10,9 @@ class ComputersController < ApplicationController
   end
 
   def create
-    @computer = Computer.create!()
-    redirect_to computer_components_path(@computer)
+    @computer = Computer.create
+    redirect_to computer_components_path(@computer, category: "cases")
+
   end
 
   def edit
