@@ -1,2 +1,14 @@
 <%= render "layouts/navbar" %>
 <div id="top-div"></div>
+
+
+<% @components.each do |component|%>
+  <p>
+
+    <%= link_to component.name, computer_specs_path(:component_id => component.id), method: :post %>
+  </p>
+
+<% end %>
+
+<%= link_to "Choose your motherboard", computer_components_path %>
+
