@@ -4,15 +4,15 @@ class ComputersController < ApplicationController
   end
 
   def show
+    @computer = Computer.find(params[:id])
   end
 
   def new
   end
 
   def create
-    @computer = Computer.create
+    @computer = Computer.create!
     redirect_to computer_components_path(@computer, category: "cases")
-
   end
 
   def edit

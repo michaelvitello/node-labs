@@ -2,13 +2,10 @@
 <div id="top-div"></div>
 
 
-<% @components.each do |component|%>
-  <p>
-
-    <%= link_to component.name, computer_specs_path(:component_id => component.id), method: :post %>
-  </p>
-
-<% end %>
-
-<%= link_to "Choose your motherboard", computer_components_path %>
+<div class="container">
+  <%= simple_form_for [@computer, @spec] do |f| %>
+    <%= f.association :component, label: @category.display_name, as: :radio_buttons, collection: @components.order('rating DESC') %>
+    <%= f.submit "Next" %>
+  <% end %>
+</div>
 
