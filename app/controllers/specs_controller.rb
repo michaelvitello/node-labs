@@ -37,6 +37,7 @@ class SpecsController < ApplicationController
     end
   end
 
+
   def spec_params
     params.require(:spec).permit(:component_id)
   end
