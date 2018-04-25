@@ -3,6 +3,8 @@ class Spec < ApplicationRecord
   belongs_to :category
   belongs_to :computer
 
+  validates :component, presence: true, if: :mandatory?
+
   STEPS = {
     1 => "cases",
     2 => "motherboards",
@@ -18,4 +20,7 @@ class Spec < ApplicationRecord
     12 => "operating_systems"
   }
 
+  def mandatory?
+    Category::MANDATORIES.include?(self.category.slug)
+  end
 end
