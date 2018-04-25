@@ -1,11 +1,13 @@
-<h1>Your custom computer</h1>
+<div class="container">
 
-<p>
-  Current components:
-  <br>
-  <% @computer.components.each do |c| %>
-  <br>
-  Name: <%= c.name %>, Category: <%= c.category.display_name %>
-  <% end %>
-  <br>
-</p>
+  <h1>Your custom computer</h1>
+
+  <% @computer.components.each do |component| %>
+
+        <div class="category"><%= component.category.display_name %></div>
+        <div class="name"><%= component.name %></div><div class="price">$<%= component.price %></div>
+        <div class="btn btn-primary"><%= link_to "Edit", computer_components_path(@computer.id, category: component.category.slug) %></div>
+        <% end %>
+
+
+</div>
