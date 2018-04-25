@@ -1,0 +1,19 @@
+<h1>Purchase of Computer <%= @order.computer_sku %></h1>
+
+<%= form_tag computer_order_payments_path(@computer, @order) do %>
+
+  <article>
+    <label class="amount">
+      <span>Amount: $<%= @order.price_two_decimals %></span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-name="My Computer"
+    data-email="toto@gmail.com"
+    data-description="Computer <%= @order.computer_sku %>"
+    data-amount="<%= @order.amount_cents %>"
+    data-currency="AUD"></script>
+
+<% end %>

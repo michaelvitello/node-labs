@@ -1,4 +1,58 @@
-<!-- <div class="wrapper">
+<%= simple_form_for [@computer, @spec] do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="top-div">
+        <div class="skip-div">
+        <% if (@categories_left & Category::MANDATORIES).empty? %>
+          <% if Spec::STEPS.index(@category.slug) + 1 > Spec::STEPS.keys.size %>
+            <%= link_to computer_path(@computer) do %>
+            <i class="fas fa-arrow-circle-right"></i> <p class="skip">Skip</p>
+            <% end %>
+          <% else %>
+            <%= link_to computer_components_path(:category =>
+            Spec::STEPS[Spec::STEPS.index(@category.slug) + 1]) do %>
+            <i class="fas fa-arrow-circle-right"></i> <p class="skip">Skip</p>
+            <% end %>
+          <% end %>
+        <% end %>
+        </div>
+        <p class="top-div-text">Step <%= Spec::STEPS.index(@category.slug) %>: Choose your <%= @category.display_name.singularize %> </p>
+        <div class="row">
+          <div class="col-8">
+            <div class="inner-div">
+              <% if @components.first.category_id >= 2 %>
+              <%= link_to "Previous", :back, class: "btn btn-primary btn-lg previous"  %>
+              <%= f.submit "Next", class: "btn btn-primary btn-lg next"  %>
+              <% else %>
+              <%= f.submit "Next", class: "btn btn-primary btn-lg next"  %>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="right-inner-div">
+              <% @components.each do |component| %>
+              <div class="row">
+                <div class="col-12">
+                  <div class="components">
+                    <%= f.radio_button :component_id, component.id %>
+                    <%= f.label :"component_id_#{component.id}", component.name %>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<!--
+<div class="wrapper">
+
   <input type="checkbox" id="menuToggler" class="input-toggler" />
 <label for="menuToggler" class="menu-toggler">
   <span class="menu-toggler__line"></span>
@@ -12,16 +66,8 @@
     <li class="menu__item"><a class="menu__link" href="#Case3">Case 3</a></li>
   </ul>
 </aside> -->
-
-
-<div class="container">
-  <%= simple_form_for [@computer, @spec] do |f| %>
-    <%= f.association :component, label: @category.display_name, as: :radio_buttons, collection: @components.order('rating DESC') %>
-    <%= f.submit "Next" %>
-  <% end %>
-</div>
-
   <!-- <main class="content">
+
     <div id="Case1">
       <h1>Case 1</h1>
       <p>This is the first case</p>
@@ -47,49 +93,5 @@
   </div>
 </div> -->
 
+<!-- Checks if there are any mandatory components left to select -->
 
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <div class="top-div">
-        <p class="top-div-text">Step 1: Choose your case </p>
-        <div class="row">
-          <div class="col-8">
-            <div class="inner-div">
-              <button type="button" class="btn btn-primary btn-lg" disabled>Next</button>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="right-inner-div">
-              <div class="row">
-                <div class="col-12">
-                  <div class="components">
-
-
-                  </div>
-                </div>
-              </div>
-                <div class="row">
-                <div class="col-12">
-                  <div class="components">
-
-
-                  </div>
-                </div>
-              </div>
-                <div class="row">
-                <div class="col-12">
-                  <div class="components">
-
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
- -->
