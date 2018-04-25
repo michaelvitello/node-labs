@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180424025830) do
+ActiveRecord::Schema.define(version: 20180424062615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 20180424025830) do
     t.bigint "computer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_specs_on_category_id"
     t.index ["component_id"], name: "index_specs_on_component_id"
     t.index ["computer_id"], name: "index_specs_on_computer_id"
   end
@@ -81,6 +83,7 @@ ActiveRecord::Schema.define(version: 20180424025830) do
 
   add_foreign_key "computers", "orders"
   add_foreign_key "computers", "users"
+  add_foreign_key "specs", "categories"
   add_foreign_key "specs", "components"
   add_foreign_key "specs", "computers"
 end

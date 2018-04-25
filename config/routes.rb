@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :computers do
-    resources :specs, only: [:create]
+    resources :specs, only: [:update]
     resources :components, only: [:index]
   end
 

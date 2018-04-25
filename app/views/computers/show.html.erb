@@ -1,0 +1,11 @@
+<h1>Your custom computer</h1>
+
+<p>
+  Current components:
+  <br>
+  <% @computer.components.each do |c| %>
+  <br>
+  Name: <%= c.name %>, Category: <%= c.category.display_name %>
+  <% end %>
+  <br>
+</p>

@@ -14,6 +14,13 @@
   </ul>
 </aside>
 
+
+<div class="container">
+  <%= simple_form_for [@computer, @spec] do |f| %>
+    <%= f.association :component, label: @category.display_name, as: :radio_buttons, collection: @components.order('rating DESC') %>
+    <%= f.submit "Next" %>
+  <% end %>
+</div>
   <main class="content">
     <div id="Case1">
       <h1>Case 1</h1>
