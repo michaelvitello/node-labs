@@ -1,5 +1,5 @@
 
-<div class="wrapper">
+<!-- <div class="wrapper">
   <input type="checkbox" id="menuToggler" class="input-toggler" />
 <label for="menuToggler" class="menu-toggler">
   <span class="menu-toggler__line"></span>
@@ -15,12 +15,6 @@
 </aside>
 
 
-<div class="container">
-  <%= simple_form_for [@computer, @spec] do |f| %>
-    <%= f.association :component, label: @category.display_name, as: :radio_buttons, collection: @components.order('rating DESC') %>
-    <%= f.submit "Next" %>
-  <% end %>
-</div>
   <main class="content">
     <div id="Case1">
       <h1>Case 1</h1>
@@ -45,11 +39,25 @@
       </div>
     </div>
   </div>
+</div> -->
+
+<div class="container">
+  <%= simple_form_for [@computer, @spec] do |f| %>
+    <%= f.association :component, label: @category.display_name, as: :radio_buttons, collection: @components.order('rating DESC') %>
+    <%= f.submit "Next" %>
+  <% end %>
 </div>
 
+<!-- Checks if there are any mandatory components left to select -->
 
-
-
+<% if (@categories_left & Category::MANDATORIES).empty? %>
+  <% if Spec::STEPS.index(@category.slug) + 1 > Spec::STEPS.keys.size %>
+    <%= link_to "Skip", computer_path(@computer) %>
+  <% else %>
+    <%= link_to "Skip", computer_components_path(:category =>
+    Spec::STEPS[Spec::STEPS.index(@category.slug) + 1])  %>
+  <% end %>
+<% end %>
 
 
 
