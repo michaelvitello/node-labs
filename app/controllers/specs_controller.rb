@@ -11,8 +11,6 @@ class SpecsController < ApplicationController
     if @spec.update(spec_params)
       if @spec.category.slug == "cases"
         redirect_to computer_components_path(@spec.computer, category: "motherboards")
-      elsif @spec.computer.is_computer_completed?
-        redirect_to computer_path(@spec.computer)
       else
         redirect_to computer_path(@spec.computer)
       end
