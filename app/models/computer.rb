@@ -29,7 +29,8 @@ class Computer < ApplicationRecord
 
   def populate_specs
     Category.all.each do |category|
-      specs.create!(computer: self, component: nil, category: category)
+      spec = specs.new(computer: self, component: nil, category: category)
+      spec.save(validate: false)
     end
   end
 end

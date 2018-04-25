@@ -4,6 +4,8 @@ class ComponentsController < ApplicationController
     @components = @category.components.order('rating DESC')
     @computer = Computer.find(params["computer_id"])
     @spec = @computer.specs.find_by(category_id: @category.id)
+
+    @categories_left = Category.all.map(&:slug) - @spec.computer.completed_categories
   end
 
   def update
