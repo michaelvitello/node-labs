@@ -1,4 +1,3 @@
-
 <%= simple_form_for [@computer, @spec] do |f| %>
 <div class="container">
   <div class="row">
@@ -40,6 +39,7 @@
 
 <!--
 <div class="wrapper">
+
   <input type="checkbox" id="menuToggler" class="input-toggler" />
 <label for="menuToggler" class="menu-toggler">
   <span class="menu-toggler__line"></span>
@@ -53,10 +53,8 @@
     <li class="menu__item"><a class="menu__link" href="#Case3">Case 3</a></li>
   </ul>
 </aside> -->
-
-</div>
-
   <!-- <main class="content">
+
     <div id="Case1">
       <h1>Case 1</h1>
       <p>This is the first case</p>
@@ -81,5 +79,17 @@
     </div>
   </div>
 </div> -->
+
+<!-- Checks if there are any mandatory components left to select -->
+
+<% if (@categories_left & Category::MANDATORIES).empty? %>
+  <% if Spec::STEPS.index(@category.slug) + 1 > Spec::STEPS.keys.size %>
+    <%= link_to "Skip", computer_path(@computer) %>
+  <% else %>
+    <%= link_to "Skip", computer_components_path(:category =>
+    Spec::STEPS[Spec::STEPS.index(@category.slug) + 1])  %>
+  <% end %>
+<% end %>
+
 
 

@@ -1,12 +1,12 @@
 class Category < ApplicationRecord
   MANDATORIES = [
     "cases",
-    "graphic_cards",
-    "memory",
     "motherboards",
-    "power_supply",
     "processors",
-    "storage"
+    "memory",
+    "power_supply",
+    "storage",
+    "graphic_cards"
   ]
 
   has_many :components
