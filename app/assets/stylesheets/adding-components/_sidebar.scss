@@ -1,133 +1,133 @@
-:root {
-  --sidebar-width: 300px;
-  --toggler-size: 30px;
-}
+// :root {
+//   --sidebar-width: 300px;
+//   --toggler-size: 30px;
+// }
 
 
-.sidebar {
-  width: var(--sidebar-width);
-  transform: translateX(calc(var(--sidebar-width) * -1));
-  background: $orange;
-  background-size: 400% 400%;
-  background-position: 90% 90%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  opacity: .5;
-  transition: transform .6s, background-position 1s .6s;
-  z-index: -1;
-}
+// .sidebar {
+//   width: var(--sidebar-width);
+//   transform: translateX(calc(var(--sidebar-width) * -1));
+//   background: $orange;
+//   background-size: 400% 400%;
+//   background-position: 90% 90%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100%;
+//   opacity: .5;
+//   transition: transform .6s, background-position 1s .6s;
+//   z-index: -1;
+// }
 
-.input-toggler:checked ~ .sidebar {
-  opacity: .9;
-  transform: translateX(0);
-  background-position: 0 0;
-  z-index: 5;
-  position: absolute;
-}
+// .input-toggler:checked ~ .sidebar {
+//   opacity: .9;
+//   transform: translateX(0);
+//   background-position: 0 0;
+//   z-index: 5;
+//   position: absolute;
+// }
 
-.content, .content div {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
+// .content, .content div {
+//   width: 100%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   flex-direction: column;
+// }
 
-.content div[id] {
-  display: none;
-}
+// .content div[id] {
+//   display: none;
+// }
 
-.menu {
-  list-style-type: none;
-  padding-top: 90px;
-}
+// .menu {
+//   list-style-type: none;
+//   padding-top: 90px;
+// }
 
-.menu__link {
-  color: white;
-  font-weight: 100;
-  text-decoration: none;
-  font-size: 3rem;
-  line-height: 7rem;
-  font-family: "Roboto", sans-serif;
+// .menu__link {
+//   color: white;
+//   font-weight: 100;
+//   text-decoration: none;
+//   font-size: 3rem;
+//   line-height: 7rem;
+//   font-family: "Roboto", sans-serif;
 
-}
+// }
 
-.menu__link:hover,
-.menu__link:focus,
-.menu__link:active {
-  color: white;
-  text-decoration: none;
-}
+// .menu__link:hover,
+// .menu__link:focus,
+// .menu__link:active {
+//   color: white;
+//   text-decoration: none;
+// }
 
-.menu-toggler {
-  display: block;
-  width: var(--toggler-size);
-  height: var(--toggler-size);
-  position: absolute;
-  top: -50px;
-  left: 10px;
-  cursor: pointer;
-  z-index: 1;
-}
-
-
-.menu-toggler__line {
-  height: calc(var(--toggler-size) / 5);
-  background: $orange;
-  position: absolute;
-  left: 0;
-  right: 0;
-  transition-property: transform, opacity;
-  transition-duration: .5s, .25s;
-  transition-delay: 0s, .5s;
-  animation-name: slidein;
-  animation-duration: .5s;
-  animation-iteration-count:1;
-  animation-timing-function: ease-out;
-}
-
-.input-toggler:checked ~ .menu-toggler .menu-toggler__line {
-  transition-delay: .25s, 0s;
-}
+// .menu-toggler {
+//   display: block;
+//   width: var(--toggler-size);
+//   height: var(--toggler-size);
+//   position: absolute;
+//   top: -50px;
+//   left: 10px;
+//   cursor: pointer;
+//   z-index: 1;
+// }
 
 
-.menu-toggler__line:nth-child(2) {
-  top: calc(var(--toggler-size) / 5 * 2);
-animation-duration: .6s;
-}
+// .menu-toggler__line {
+//   height: calc(var(--toggler-size) / 5);
+//   background: $orange;
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   transition-property: transform, opacity;
+//   transition-duration: .5s, .25s;
+//   transition-delay: 0s, .5s;
+//   animation-name: slidein;
+//   animation-duration: .5s;
+//   animation-iteration-count:1;
+//   animation-timing-function: ease-out;
+// }
 
-.menu-toggler__line:nth-child(3) {
-  top: calc(var(--toggler-size) / 5 * 4);
-    animation-duration:.7s;
-}
-
-.input-toggler {
-  display: none;
-
-}
-
-.input-toggler:checked ~ .menu-toggler .menu-toggler__line {
-  background: $orange;
-}
-
-.input-toggler:checked ~ .menu-toggler .menu-toggler__line:nth-child(1) {
-  transform: translateY(calc(var(--toggler-size) / 5 * 2)) rotate(45deg);
-}
-
-.input-toggler:checked ~ .menu-toggler .menu-toggler__line:nth-child(2) {
-  opacity: 0;
-}
-
-.input-toggler:checked ~ .menu-toggler .menu-toggler__line:nth-child(3) {
-  transform: translateY(calc(var(--toggler-size) / 5 * -2)) rotate(-45deg);
-}
+// .input-toggler:checked ~ .menu-toggler .menu-toggler__line {
+//   transition-delay: .25s, 0s;
+// }
 
 
+// .menu-toggler__line:nth-child(2) {
+//   top: calc(var(--toggler-size) / 5 * 2);
+// animation-duration: .6s;
+// }
+
+// .menu-toggler__line:nth-child(3) {
+//   top: calc(var(--toggler-size) / 5 * 4);
+//     animation-duration:.7s;
+// }
+
+// .input-toggler {
+//   display: none;
+
+// }
+
+// .input-toggler:checked ~ .menu-toggler .menu-toggler__line {
+//   background: $orange;
+// }
+
+// .input-toggler:checked ~ .menu-toggler .menu-toggler__line:nth-child(1) {
+//   transform: translateY(calc(var(--toggler-size) / 5 * 2)) rotate(45deg);
+// }
+
+// .input-toggler:checked ~ .menu-toggler .menu-toggler__line:nth-child(2) {
+//   opacity: 0;
+// }
+
+// .input-toggler:checked ~ .menu-toggler .menu-toggler__line:nth-child(3) {
+//   transform: translateY(calc(var(--toggler-size) / 5 * -2)) rotate(-45deg);
+// }
 
 
-@keyframes slidein {
-  from {left: -200%; right:200%;}
-  to {left: 0; right: 0;}
-}
+
+
+// @keyframes slidein {
+//   from {left: -200%; right:200%;}
+//   to {left: 0; right: 0;}
+// }
