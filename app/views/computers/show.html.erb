@@ -8,6 +8,13 @@
         <div class="name"><%= component.name %></div><div class="price">$<%= component.price %></div>
         <div class="btn btn-primary"><%= link_to "Edit", computer_components_path(@computer.id, category: component.category.slug) %></div>
         <% end %>
-
-
 </div>
+
+<div class="pricing-footer">
+  <img src="" alt="">
+  <p>$<%= (@computer.computer_price_calculation) %></p>
+  <div class="empty"></div>
+  <div><%= button_to "Purchase", computer_orders_path(@computer.id), method: :post, class: "btn btn-success" %></div>
+</div>
+
+
