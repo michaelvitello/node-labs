@@ -25,6 +25,9 @@ class SpecsController < ApplicationController
   end
 
   def destroy
+    @spec = Spec.find(params[:id])
+    @spec.destroy
+    redirect_to computer_path(params[:computer_id])
   end
 
   protected
