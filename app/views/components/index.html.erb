@@ -3,12 +3,26 @@
   <div class="row">
     <div class="col-12">
       <div class="top-div">
-        <p class="top-div-text">Step <%= @components.first.category_id %>: Choose your <%= params[:category].singularize %> </p>
+        <div class="skip-div">
+        <% if (@categories_left & Category::MANDATORIES).empty? %>
+          <% if Spec::STEPS.index(@category.slug) + 1 > Spec::STEPS.keys.size %>
+            <%= link_to computer_path(@computer) do %>
+            <i class="fas fa-arrow-circle-right"></i> <p class="skip">Skip</p>
+            <% end %>
+          <% else %>
+            <%= link_to computer_components_path(:category =>
+            Spec::STEPS[Spec::STEPS.index(@category.slug) + 1]) do %>
+            <i class="fas fa-arrow-circle-right"></i> <p class="skip">Skip</p>
+            <% end %>
+          <% end %>
+        <% end %>
+        </div>
+        <p class="top-div-text">Step <%= Spec::STEPS.index(@category.slug) %>: Choose your <%= @category.display_name.singularize %> </p>
         <div class="row">
           <div class="col-8">
             <div class="inner-div">
               <% if @components.first.category_id >= 2 %>
-              <%= f.submit "Previous", class: "btn btn-primary btn-lg previous"  %>
+              <%= link_to "Previous", :back, class: "btn btn-primary btn-lg previous"  %>
               <%= f.submit "Next", class: "btn btn-primary btn-lg next"  %>
               <% else %>
               <%= f.submit "Next", class: "btn btn-primary btn-lg next"  %>
@@ -35,7 +49,6 @@
   </div>
 </div>
 <% end %>
-
 
 <!--
 <div class="wrapper">
@@ -81,15 +94,4 @@
 </div> -->
 
 <!-- Checks if there are any mandatory components left to select -->
-
-<% if (@categories_left & Category::MANDATORIES).empty? %>
-  <% if Spec::STEPS.index(@category.slug) + 1 > Spec::STEPS.keys.size %>
-    <%= link_to "Skip", computer_path(@computer) %>
-  <% else %>
-    <%= link_to "Skip", computer_components_path(:category =>
-    Spec::STEPS[Spec::STEPS.index(@category.slug) + 1])  %>
-  <% end %>
-<% end %>
-
-
 
