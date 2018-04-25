@@ -1,0 +1,114 @@
+// On screens that are 768px or less
+@media screen and (max-width: 768px) {
+  .page-wrapper {
+    max-width: 900px;
+    margin: 50px auto;
+  }
+
+  .component-wrapper {
+    font-size: 13px;
+  }
+
+  .component-item-wrapper {
+    margin: 20px 0px;
+  }
+
+  .component-item {
+    padding: 20px;
+    border: 2px solid rgb(220,220,220);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .name {
+    flex-grow: 1;
+    margin: 10px 0px;
+  }
+
+  .picture {
+    display: none;
+  }
+
+  .category {
+    font-size: 17px;
+    margin: 0px 20px;
+  }
+
+  .computer-btn-style-sm {
+    margin: 5px 50px;
+  }
+
+
+  .margin-btn {
+    margin: 2px 0px;
+    a {
+      font-size: 11px;
+    }
+  }
+}
+
+// On screens that are 1500px or less
+@media screen and (max-width: 1500px) {
+
+  .page-wrapper {
+    max-width: 900px;
+    margin: 50px auto;
+  }
+
+  .component-wrapper {
+    font-size: 13px;
+  }
+
+  .component-item-wrapper {
+    margin: 20px 0px;
+  }
+
+  .component-item {
+    padding: 20px;
+    border: 2px solid rgb(220,220,220);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .name {
+    flex-grow: 1;
+  }
+
+  .picture {
+    background-color: gray;
+    margin: 0px 20px;
+    min-width: 100px;
+    height: 100px;
+  }
+
+  .category {
+    margin: 0px 20px;
+    min-width: 100px;
+  }
+
+  .price {
+    margin: 0px 20px;
+  }
+
+  .computer-btn-style {
+    margin: 0px 50px;
+    display: flex;
+    flex-direction: column;
+    a {
+      color: white;
+    }
+  }
+
+  .margin-btn {
+    margin: 2px 0px;
+    a {
+      font-size: 11px;
+    }
+  }
+}
+
