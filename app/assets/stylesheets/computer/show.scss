@@ -41,7 +41,6 @@
     margin: 5px 50px;
   }
 
-
   .margin-btn {
     margin: 2px 0px;
     a {
@@ -50,8 +49,8 @@
   }
 }
 
-// On screens that are 1500px or less
-@media screen and (max-width: 1500px) {
+// On screens that are 3000px or less
+@media screen and (max-width: 3000px) {
 
   .page-wrapper {
     max-width: 900px;
@@ -96,6 +95,14 @@
   }
 
   .computer-btn-style {
+    margin-left: 50px;
+    margin-right: 60px;
+    a {
+      color: white;
+    }
+  }
+
+  .computer-btn-style-optionals {
     margin: 0px 50px;
     display: flex;
     flex-direction: column;

@@ -12,7 +12,27 @@
           <div class="computer-btn-style-sm">
           <div class="computer-btn-style">
             <div class="margin-btn btn btn-primary btn-sm"><%= link_to "Edit", computer_components_path(@computer.id, category: component.category.slug) %></div>
-            <div class="margin-btn btn btn-danger btn-sm"><%= link_to "Remove", computer_spec_path(@computer.id, spec.id), method: :delete, data: { confirm: 'Are you sure?' } %></div>
+          </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+   <div class="component-wrapper">
+    <% @specs_without_component.each do |spec| %>
+      <div class="component-item-wrapper">
+        <div class="component-item">
+          <div class="picture"></div>
+          <div class="category text-center"><%= spec.category.display_name %></div>
+          <div class="name"></div>
+          <div class="price-sm"><div class="price"></div></div>
+          <div class="computer-btn-style-sm">
+          <div class="computer-btn-style-optionals">
+            <div class="margin-btn btn btn-primary btn-sm"><%= link_to "Add", computer_components_path(@computer.id, category: spec.category.slug) %></div>
+            <div class="margin-btn btn btn-danger btn-sm">
+              <%= link_to "Remove", computer_spec_path(@computer.id, spec.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+              </div>
           </div>
           </div>
         </div>
