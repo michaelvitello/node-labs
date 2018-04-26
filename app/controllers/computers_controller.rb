@@ -1,21 +1,31 @@
 class ComputersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:create, :show]
+  before_action :set_computers, only: [:show, :destroy]
+
   def index
-    @computers = Computer.all
+    @computers = current_user.computers
+
   end
 
   def show
     @computer = Computer.find(params[:id])
     @specs_with_component = @computer.specs.with_component
     @specs_without_component = @computer.specs.without_component
+    session[:new_computer_id] = @computer.id
   end
 
   def new
   end
 
   def create
-    @computer = Computer.create!
+    @computer = Computer.new
+    if current_user
+      @computer.user = current_user
+    end
+    @computer.save
     redirect_to computer_components_path(@computer, category: "cases")
   end
+
 
   def edit
   end
@@ -24,8 +34,14 @@ class ComputersController < ApplicationController
   end
 
   def destroy
+    @computer.destroy
+    redirect_to computer_path(@computer)
   end
 
+  protected
 
+  def set_computers
+    @computer = Computer.find(params[:id])
+  end
 
 end
