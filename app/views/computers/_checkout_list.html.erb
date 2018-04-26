@@ -1,0 +1,32 @@
+<div class="component-wrapper">
+  <% specs.each do |spec| %>
+    <div class="component-item-wrapper">
+
+      <div class="component-item">
+        <div class="picture"></div>
+        <div class="category text-center"><%= spec.category.display_name %></div>
+        <div class="name"><%= spec.component.try(:name) %></div>
+        <% if spec.component_id %>
+          <div class="price-sm text-center">
+          <div class="price text-center">
+          $<%= spec.component.price %>
+          </div>
+          </div>
+        <% end %>
+        <div class="computer-btn-style-sm">
+        <div class="computer-btn-style">
+        <div class="margin-btn btn btn-primary btn-sm btn-width"><%= link_to "Edit", computer_components_path(@computer.id, category: spec.category.slug) %></div>
+          <% if remove_button %>
+          <% if spec.component_id %>
+            <div class="margin-btn btn btn-danger btn-sm btn-width">
+            <%= link_to "Remove", computer_spec_path(@computer.id, spec.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          <% end %>
+          <% end %>
+        </div>
+        </div>
+      </div>
+
+    </div>
+  <% end %>
+</div>
