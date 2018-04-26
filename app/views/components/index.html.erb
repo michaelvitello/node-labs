@@ -3,29 +3,37 @@
   <div class="row">
     <div class="col-12">
       <div class="top-div">
-        <div class="skip-div">
+       <!--  <div class="skip-div">
         <% if (@categories_left & Category::MANDATORIES).empty? %>
-          <% if Spec::STEPS.index(@category.slug) + 1 > Spec::STEPS.keys.size %>
+          <% if @current_step + 1 > Spec::STEPS.keys.size %>
             <%= link_to computer_path(@computer) do %>
-            <i class="fas fa-arrow-circle-right"></i> <p class="skip">Skip</p>
+            <i class="fas fa-arrow-right"></i> <p class="skip">Skip</p>
             <% end %>
           <% else %>
             <%= link_to computer_components_path(:category =>
-            Spec::STEPS[Spec::STEPS.index(@category.slug) + 1]) do %>
-            <i class="fas fa-arrow-circle-right"></i> <p class="skip">Skip</p>
+            Spec::STEPS[@current_step + 1]) do %>
+            <i class="fas fa-arrow-right"></i> <p class="skip">Skip</p>
             <% end %>
           <% end %>
         <% end %>
-        </div>
-        <p class="top-div-text">Step <%= @current_step %>: Choose your <%= @category.display_name.singularize %> </p>
+
+        </div> -->
+        <% if @components.first.category_id >= 7 %>
+        <p class="top-div-text">
+          <span class="optional"> Optional</span> Step <%= @current_step %>: Choose your <%= @category.display_name.singularize %> </p>
+          <% else %>
+           <p class="top-div-text">
+          Step <%= @current_step %>: Choose your <%= @category.display_name.singularize %> </p>
+          <% end %>
+        
         <div class="row">
           <div class="col-8">
             <div class="inner-div">
               <% if @components.first.category_id >= 2 %>
               <%= link_to "Previous", :back, class: "btn btn-primary btn-lg previous"  %>
-              <%= f.submit "Next", class: "btn btn-primary btn-lg next"  %>
+              <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: true  %>
               <% else %>
-              <%= f.submit "Next", class: "btn btn-primary btn-lg next"  %>
+              <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: true %>
               <% end %>
             </div>
           </div>
@@ -34,10 +42,12 @@
               <% @components.each do |component| %>
               <div class="row">
                 <div class="col-12">
-                  <div class="components">
-                    <%= f.radio_button :component_id, component.id %>
-                    <%= f.label :"component_id_#{component.id}", component.name %>
+                   <%= f.label :"component_id_#{component.id}",class: "big-label" do %>
+                    <%= f.radio_button :component_id, component.id, class: "component-button" %>
+                    <div class="components">
+                      <%= component.name %>
                   </div>
+                  <% end %>
                 </div>
               </div>
               <% end %>
