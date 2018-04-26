@@ -1,4 +1,7 @@
 class ComponentsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+
+
   def index
     @category = Category.find_by(slug: params["category"])
     @components = @category.components.order('rating DESC')

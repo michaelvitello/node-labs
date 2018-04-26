@@ -1,4 +1,3 @@
-require "pry-byebug"
 
 class PaymentsController < ApplicationController
    before_action :set_order
