@@ -47,6 +47,11 @@
       font-size: 11px;
     }
   }
+
+  .btn-width {
+    width: 58px;
+  }
+
 }
 
 // On screens that are 3000px or less
@@ -97,6 +102,8 @@
   .computer-btn-style {
     margin-left: 50px;
     margin-right: 60px;
+    display: flex;
+    flex-direction: column;
     a {
       color: white;
     }
@@ -117,5 +124,10 @@
       font-size: 11px;
     }
   }
+
+  .btn-width {
+    width: 58px;
+  }
+
 }
 
