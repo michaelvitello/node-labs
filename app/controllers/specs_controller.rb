@@ -1,4 +1,5 @@
 class SpecsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :update
 
   def show
   end
@@ -16,6 +17,7 @@ class SpecsController < ApplicationController
         redirect_to computer_components_path(@spec.computer, category: next_step)
       end
     else
+      flash[:alert] = "Please select one"
       redirect_to computer_components_path(@spec.computer, category: @spec.category.slug)
     end
   end
