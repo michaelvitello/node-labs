@@ -9,7 +9,7 @@ class Computer < ApplicationRecord
   after_create :populate_specs
 
   def is_computer_completed?
-    completed_categories == Category::MANDATORIES.sort
+    completed_categories & Category::MANDATORIES.sort == Category::MANDATORIES.sort
   end
 
   def completed_categories
