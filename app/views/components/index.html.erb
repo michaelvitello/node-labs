@@ -25,7 +25,7 @@
            <p class="top-div-text">
           Step <%= @current_step %>: Choose your <%= @category.display_name.singularize %> </p>
           <% end %>
-        
+
         <div class="row">
           <div class="col-8">
             <div class="inner-div">
@@ -42,11 +42,13 @@
               <% @components.each do |component| %>
               <div class="row">
                 <div class="col-12">
-                  <div class="components">
-                    <%= f.label :"component_id_#{component.id}", component.name, class: "big-label" do %>
-                      <%= f.radio_button :component_id, component.id, class: "component-button" %>
+                  <%= f.label :"component_id_#{component.id}", class: "big-label" do %>
+                  <%= f.radio_button :component_id, component.id, class: "component-button" %>
+                    <div class="components">
+                      <%= component.name %><br>
                       <p id="component-price" data-value="<%= component.price %>">$<%= component.price %></p>
-                  </div>
+                    </div>
+                  <% end %>
                 </div>
               </div>
               <% end %>

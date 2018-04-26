@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  belongs_to :computer, optional: true
+  has_one :computer
   monetize :amount_cents
 
   validate :order_contains_mandatory_components
@@ -7,7 +7,7 @@ class Order < ApplicationRecord
 private
 
   def order_contains_mandatory_components
-    if !self.computer.is_computer_completed?
+    if !Computer.find(self.computer_id).is_computer_completed?
       errors.add(:order, "Computer must be completed")
     end
   end
