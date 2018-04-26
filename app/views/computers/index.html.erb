@@ -1,0 +1,31 @@
+<h1>Your builds</h1>
+Total Computers(<%= @computers.count %>)
+<p>
+
+  Completed computers:
+  <br>
+    <% @computers.each do |c| %>
+      <% if c.is_computer_completed? %>
+        <%= link_to "Computer: #{@computers.index(c) + 1}", computer_path(c) %>
+      <% end %>
+    <% end %>
+  <br>
+  Uncompleted Computers:
+  <br>
+    <% @computers.each do |c| %>
+      <% if !c.is_computer_completed? %>
+        <%= link_to "Computer: #{@computers.index(c) + 1}", computer_path(c) %>
+      <% end %>
+    <% end %>
+
+</p>
+
+
+
+
+
+<!-- Shows how many components completed -->
+
+<!-- {c.completed_categories.size} / #{Spec::STEPS.size}  -->
+
+
