@@ -4,7 +4,7 @@
 
   <article>
     <label class="amount">
-      <span>Amount: $<%= @order.price_two_decimals %></span>
+      <span>Amount: <%= humanized_money_with_symbol @order.amount %></span>
     </label>
   </article>
 

@@ -9,20 +9,15 @@ class Computer < ApplicationRecord
   after_create :populate_specs
 
   def is_computer_completed?
-    completed_categories & Category::MANDATORIES.sort == Category::MANDATORIES.sort
+    (completed_categories & Category::MANDATORIES.sort) == Category::MANDATORIES.sort
   end
 
   def completed_categories
     components.map(&:category).map(&:slug).sort
   end
 
-  def price_in_cents
-    components.sum(:price_cents)
-  end
-
-  def computer_price_calculation
-    calculation = price_in_cents / 100
-    '%.2f' % calculation
+  def price
+    components.map(&:price).sum
   end
 
   protected

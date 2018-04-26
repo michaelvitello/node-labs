@@ -11,7 +11,7 @@ class SpecsController < ApplicationController
     @spec = Spec.find(params[:id])
     if @spec.update(spec_params)
       next_step = get_next_step(@spec.category.slug)
-      if next_step == :go_to_computer
+      if next_step == :go_to_computer || params[:finished] == "true"
         redirect_to computer_path(@spec.computer)
       else
         redirect_to computer_components_path(@spec.computer, category: next_step)
