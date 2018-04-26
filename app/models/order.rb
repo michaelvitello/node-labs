@@ -1,8 +1,15 @@
 class Order < ApplicationRecord
-  has_many :computers
+  belongs_to :computer, optional: true
+  monetize :amount_cents
 
-  def price_two_decimals
-    '%.2f' % (amount_cents / 100)
+  validate :order_contains_mandatory_components
+
+private
+
+  def order_contains_mandatory_components
+    if !self.computer.is_computer_completed?
+      errors.add(:order, "Computer must be completed")
+    end
   end
 
 end

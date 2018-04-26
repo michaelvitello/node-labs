@@ -37,6 +37,7 @@
                   <div class="components">
                     <%= f.radio_button :component_id, component.id %>
                     <%= f.label :"component_id_#{component.id}", component.name %>
+                    <p id="component-price" data-value="<%= component.price %>">$<%= component.price %></p>
                   </div>
                 </div>
               </div>
@@ -49,6 +50,27 @@
   </div>
 </div>
 <% end %>
+
+  <div class="pricing-footer">
+    <% if params[:category] != 'cases' %>
+    <%= image_tag "https://www.scan.co.uk/images/infopages/corsair_cases/570x-top.png" %>
+    <% end %>
+    <p id="current-price" data-value="<%= @computer.price %>"><%= humanized_money_with_symbol(@computer.price) %></p>
+    <div class="empty"></div>
+    <div>
+      <% if @computer.is_computer_completed? %>
+        <%= button_tag "Finish", type: "submit", class: "btn btn-success",
+        onclick: "submitForm(forms[0], '?finished=true')" %>
+      <% end %>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function submitForm(form, params) {
+      form.action = form.action + params
+      form.submit()
+    }
+  </script>
 
 <!--
 <div class="wrapper">
