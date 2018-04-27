@@ -16,7 +16,7 @@ class Computer < ApplicationRecord
     components.map(&:category).map(&:slug).sort
   end
 
-  def price
+  def total_price
     components.map(&:price).sum
   end
 
