@@ -1,73 +1,78 @@
 <div class="page-wrapper">
 
-  <h1 class="text-center m-3">Your custom computer</h1>
+  <h1 class="text-center my-5">Your custom computer</h1>
 
 
-  <div class="picture-container"><div class="payment-picture"></div></div>
+  <div class="picture-container"><img class="payment-picture" src="https://www.scan.co.uk/images/infopages/corsair_cases/570x-top.png" alt="current-case"></img></div>
 
 
 
-  <div class="content-wrapper">
-  <h3 class="top-border-title my-4">Name</h3></div>
+  <div class="title-wrapper">
+  <h3 class="top-border-title mt-5 mb-3">Items</h3></div>
 
-  <div class="content-wrapper">
-  <h3 class="top-border-title my-4">Color</h3>
+  <div class="center-list">
+    <div class="list-container">
+      <ol>
+        <% @computer.specs.select(&:mandatory?).each do |spec| %>
+        <li>
+        <%= spec.category.display_name %> | <%= spec.component.name %> | $<%= spec.component.price %>
+        </li>
+        <% end %>
+        <% @computer.specs.reject(&:mandatory?).each do |spec| %>
+        <% if spec.component_id %>
+        <li>
+        <%= spec.category.display_name %> | <%= spec.component.name %> | $<%= spec.component.price %>
+        </li>
+        <% end %>
+        <% end %>
+      </ol>
+    </div>
   </div>
 
-   <div class="summary-color text-center">
+  <div class="title-wrapper">
+  <h3 class="top-border-title my-4">Addtional options</h3>
+  </div>
+
+   <div class="summary-color">
     <div class="color-swatch-red"><p class="color-label">Red</p></div>
   </div>
 
-    <div class="summary-color text-center mt-3">
+    <div class="summary-color mt-3">
     <div class="color-swatch-blue"><p class="color-label">Blue</p></div>
   </div>
 
+  <div class="title-wrapper">
+  <h3 class="top-border-title mt-5 mb-3">Shipping</h3></div>
 
-
-  <div class="content-wrapper">
-  <h3 class="top-border-title my-4">Mandatory items</h3></div>
-
-  <div class="center-ul">
-    <ul>
-    <% @order.computer.specs.select(&:mandatory?).each do |spec| %>
-      <li>
-        <%= spec.category.display_name %>
-      </li>
-      <% end %>
-    </ul>
+  <div class="center-list">
+    <div class="list-container text-center">
+      <ul>
+        <li><i class="fa fa-truck" aria-hidden="true"></i><p>Free delivery</p></li>
+        <li><i class="fa fa-smile-o" aria-hidden="true"></i><p>Estimated shipping date: 29th of April</p>
+        </li>
+        <li><i class="fas fa-map-marker" aria-hidden="true"></i><p>Deliver to Melbourne 3000</p></li>
+      </ul>
+    </div>
   </div>
 
-  <div class="content-wrapper">
-  <h3 class="top-border-title my-4">Optional items</h3></div>
-
-  <div class="center-ul">
-  <ul>
-  <% @order.computer.specs.reject(&:mandatory?).each do |spec| %>
-    <li>
-      <%= spec.category.display_name %>
-    </li>
-    <% end %>
-  </ul>
-</div>
 
 
-  <div class="footer">
-      <%= form_tag computer_order_payments_path(@computer, @order) do %>
 
-    <article>
-      <label class="amount">
-        <span>Amount: $<%= @order.price_two_decimals %></span>
-      </label>
-    </article>
+  <div class="pricing-footer">
+    <img src="https://www.scan.co.uk/images/infopages/corsair_cases/570x-top.png" alt="current-case">
+    <p><%= humanized_money_with_symbol(@computer.price) %></p>
+    <div class="empty"></div>
 
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    <form>
+      <button type="submit" class="btn btn-success">Pay</button>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
       data-name="My Computer"
       data-email="toto@gmail.com"
       data-description="Computer <%= @order.computer_sku %>"
       data-amount="<%= @order.amount_cents %>"
       data-currency="AUD"></script>
-
-  <% end %>
+    </form>
   </div>
+
 </div>
