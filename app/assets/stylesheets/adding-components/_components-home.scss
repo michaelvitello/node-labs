@@ -9,8 +9,46 @@
 //   margin-top: 50px;
 // }
 
+
+// MV - Create space between last list item in Summary Page and the Pricing Footer
+
 .simple_form {
   padding-bottom: 100px;
+}
+
+// MV - CSS to size images inside component views, linked with innerdiv CSS
+
+@media screen and (max-width: 767px) {
+  .inner-image {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .inner-image {
+    max-width: 50px;
+    max-height: 35px;
+    transition: all .1s ease-out;
+    margin-right: 10px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .main-image {
+    max-width: 200px;
+    max-height: 150px;
+    margin-bottom: 5%;
+    transition: all .1s ease-out;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .main-image {
+    max-width: 400px;
+    max-height: 300px;
+    margin-bottom: 10%;
+    transition: all .1s ease-out;
+  }
 }
 
 .next {
@@ -86,13 +124,19 @@
   font-size: 25px;
 }
 
+// MV - I added the flex display in order to center the image inside innerdiv
+
 .inner-div {
   background-color: $gray;
   position: relative;
   width: 100%;
   height: 510px;
   z-index: 95;
-  border-radius: 3px
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .right-inner-div {
@@ -113,6 +157,8 @@
   z-index: 97;
   text-align: center;
   padding: 40px;
+  display: flex;
+  justify-content: center;
 }
 
 // .fa-arrow-right {

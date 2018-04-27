@@ -23,7 +23,7 @@
                 <% end %>
               <% else %>
               <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: true %>
-              <% end %>
+              <%= image_tag("#{@category.display_name}.png", :alt => "{@category.display_name}", class: "main-image") %>
             </div>
           </div>
           <div class="col-4">
@@ -34,7 +34,8 @@
                   <%= f.label :"component_id_#{component.id}", class: "big-label" do %>
                   <%= f.radio_button :component_id, component.id, class: "component-button" %>
                     <div class="components">
-                      <%= component.name %><br>
+                      <%= image_tag("#{@category.display_name}.png", :alt => "{@category.display_name}", class: "inner-image") %>
+                      <%= component.name %>
                       <p id="component-price" data-value="<%= component.price %>">$<%= component.price %></p>
                     </div>
                   <% end %>
