@@ -25,8 +25,8 @@
                   <% end %>
               <% else %>
                 <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: true %>
-                <%= image_tag("#{@category.display_name}.png", :alt => "{@category.display_name}", class: "main-image") %>
               <% end %>
+                <%= image_tag("#{@category.display_name}.png", :alt => "{@category.display_name}", class: "main-image") %>
             </div>
           </div>
 
