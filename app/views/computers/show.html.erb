@@ -1,15 +1,57 @@
 <div class="page-wrapper">
   <h1 class="text-center m-3">Your custom computer</h1>
-  <h3 class="text-center m-2">Compulsary parts</h3>
+
+  <h3 class="text-center m-2">Compulsory parts</h3>
   <%= render "checkout_list", specs: @mandatory_specs, remove_button: false %>
   <h3 class="text-center m-2">Optional parts</h3>
   <%= render "checkout_list", specs: @optional_specs, remove_button: true %>
+
+  <%= link_to "Save this build", computers_path %>
+  <div class="component-wrapper">
+    <% @specs_with_component.each do |spec| %>
+      <% component = spec.component %>
+      <div class="component-item-wrapper">
+        <div class="component-item">
+          <div class="picture"></div>
+          <div class="category text-center"><%= component.category.display_name %></div>
+          <div class="name"><%= component.name %></div>
+          <div class="price-sm"><div class="price">$<%= component.price %></div></div>
+          <div class="computer-btn-style-sm">
+          <div class="computer-btn-style">
+            <div class="margin-btn btn btn-primary btn-sm"><%= link_to "Edit", computer_components_path(@computer.id, category: component.category.slug) %></div>
+          </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+   <div class="component-wrapper">
+    <% @specs_without_component.each do |spec| %>
+      <div class="component-item-wrapper">
+        <div class="component-item">
+          <div class="picture"></div>
+          <div class="category text-center"><%= spec.category.display_name %></div>
+          <div class="name"></div>
+          <div class="price-sm"><div class="price"></div></div>
+          <div class="computer-btn-style-sm">
+          <div class="computer-btn-style-optionals">
+            <div class="margin-btn btn btn-primary btn-sm"><%= link_to "Add", computer_components_path(@computer.id, category: spec.category.slug) %></div>
+            <div class="margin-btn btn btn-danger btn-sm">
+              <%= link_to "Remove", computer_spec_path(@computer.id, spec.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+              </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 
 <div class="pricing-footer">
-  <img src="" alt="">
-  <p>$<%= (@computer.computer_price_calculation) %></p>
+  <img src="https://www.scan.co.uk/images/infopages/corsair_cases/570x-top.png" alt="current-case">
+  <p><%= humanized_money_with_symbol(@computer.price) %></p>
   <div class="empty"></div>
   <div><%= button_to "Purchase", computer_orders_path(@computer.id), method: :post, class: "btn btn-success" %></div>
 </div>

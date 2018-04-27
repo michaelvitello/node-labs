@@ -1,4 +1,5 @@
 class SpecsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :update
 
   def show
   end
@@ -10,12 +11,13 @@ class SpecsController < ApplicationController
     @spec = Spec.find(params[:id])
     if @spec.update(spec_params)
       next_step = get_next_step(@spec.category.slug)
-      if next_step == :go_to_computer
+      if next_step == :go_to_computer || params[:finished] == "true"
         redirect_to computer_path(@spec.computer)
       else
         redirect_to computer_components_path(@spec.computer, category: next_step)
       end
     else
+      flash[:alert] = "Please select one"
       redirect_to computer_components_path(@spec.computer, category: @spec.category.slug)
     end
   end
