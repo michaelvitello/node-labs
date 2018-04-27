@@ -1,8 +1,11 @@
 <%= simple_form_for [@computer, @spec] do |f| %>
+
 <div class="container">
+
   <div class="row">
     <div class="col-12">
       <div class="top-div">
+
        <!--  <div class="skip-div">
         <% if (@categories_left & Category::MANDATORIES).empty? %>
           <% if @current_step + 1 > Spec::STEPS.keys.size %>
@@ -18,112 +21,80 @@
         <% end %>
 
         </div> -->
-        <% if @components.first.category_id >= 7 %>
-        <p class="top-div-text">
-          <span class="optional-steps"> Optional</span>- Step <%= @current_step %>: Choose your <%= @category.display_name.singularize %> </p>
-          <% else %>
-           <p class="top-div-text">
+       <% if !Category::MANDATORIES.include?(@category.slug) %>
+          <p class="top-div-text">
+          <span class="optional"> Optional</span> Step <%= @current_step %>: Choose your <%= @category.display_name.singularize %> </p>
+        <% else %>
+          <p class="top-div-text">
+            
           Step <%= @current_step %>: Choose your <%= @category.display_name.singularize %> </p>
-          <% end %>
+        <% end %>
 
         <div class="row">
           <div class="col-8">
             <div class="inner-div">
-              <% if @components.first.category_id >= 2 %>
-              <%= link_to "Previous", :back, class: "btn btn-primary btn-lg previous"  %>
-              <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: true  %>
+              <% if @current_step >= 2 %>
+                <%= link_to "Previous", computer_components_path(@spec.computer, category: Spec::STEPS[@current_step - 1]), class: "btn btn-primary btn-lg previous"  %>
+                  <% if @optional %>
+                  <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: false  %>
+                  <% else %>
+                  <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: true  %>
+                  <% end %>
               <% else %>
-              <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: true %>
+                <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: true %>
               <% end %>
+                <%= image_tag("#{@category.display_name}.png", :alt => "{@category.display_name}", class: "main-image") %>
             </div>
           </div>
+
           <div class="col-4">
             <div class="right-inner-div">
               <% @components.each do |component| %>
-              <div class="row">
-                <div class="col-12">
-                  <%= f.label :"component_id_#{component.id}", class: "big-label" do %>
-                  <%= f.radio_button :component_id, component.id, class: "component-button" %>
-                    <div class="components">
-                      <%= component.name %><br>
-                      <p id="component-price" data-value="<%= component.price %>">$<%= component.price %></p>
-                    </div>
-                  <% end %>
+                <div class="row">
+                  <div class="col-12">
+                    <%= f.label :"component_id_#{component.id}", class: "big-label" do %>
+                    <%= f.radio_button :component_id, component.id, class: "component-button" %>
+                      <div class="components">
+                        <%= image_tag("#{@category.display_name}.png", :alt => "{@category.display_name}", class: "inner-image") %>
+                        <%= component.name %>
+                        <p id="component-price" data-value="<%= component.price %>">$<%= component.price %></p>
+                      </div>
+                    <% end %>
+                  </div>
                 </div>
-              </div>
               <% end %>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
+
 </div>
+
 <% end %>
 
-  <div class="pricing-footer">
-    <% if params[:category] != 'cases' %>
+<div class="pricing-footer">
+  <% if params[:category] != 'cases' %>
     <%= image_tag "https://www.scan.co.uk/images/infopages/corsair_cases/570x-top.png" %>
+  <% end %>
+  <p id="current-price" data-value="<%= @computer.price %>"><%= humanized_money_with_symbol(@computer.price) %></p>
+  <div class="empty"></div>
+
+  <div>
+    <% if @computer.is_computer_completed? %>
+    <%= button_tag "Finish", type: "submit", class: "btn btn-success",
+    onclick: "submitForm(forms[0], '?finished=true')" %>
     <% end %>
-    <p id="current-price" data-value="<%= @computer.price %>"><%= humanized_money_with_symbol(@computer.price) %></p>
-    <div class="empty"></div>
-    <div>
-      <% if @computer.is_computer_completed? %>
-        <%= button_tag "Finish", type: "submit", class: "btn btn-success",
-        onclick: "submitForm(forms[0], '?finished=true')" %>
-      <% end %>
-    </div>
   </div>
+</div>
 
-  <script type="text/javascript">
-    function submitForm(form, params) {
-      form.action = form.action + params
-      form.submit()
-    }
-  </script>
+<!-- This is the JS to update price in real-time -->
 
-<!--
-<div class="wrapper">
-
-  <input type="checkbox" id="menuToggler" class="input-toggler" />
-<label for="menuToggler" class="menu-toggler">
-  <span class="menu-toggler__line"></span>
-  <span class="menu-toggler__line"></span>
-  <span class="menu-toggler__line"></span>
-</label>
-<aside class="sidebar">
-  <ul class="menu">
-    <li class="menu__item"><a class="menu__link" href="#Case1">Case 1</a></li>
-    <li class="menu__item"><a class="menu__link" href="#Case2">Case 2</a></li>
-    <li class="menu__item"><a class="menu__link" href="#Case3">Case 3</a></li>
-  </ul>
-</aside> -->
-  <!-- <main class="content">
-
-    <div id="Case1">
-      <h1>Case 1</h1>
-      <p>This is the first case</p>
-    </div>
-    <div id="Case2">
-      <h1>Case 2</h1>
-      <p>This is the second case</p>
-    </div>
-    <div id="Case3">
-      <h1>Case 3</h1>
-      <p>This is the third case</p>
-    </div>
-  </main>
-
-  <div class="container case-container">
-    <div class="row">
-      <div class="col-12">
-        <div class="main-div">
-          <button type="button" class="btn btn-primary btn-lg">Next</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- Checks if there are any mandatory components left to select -->
-
+<script type="text/javascript">
+  function submitForm(form, params) {
+    form.action = form.action + params
+    form.submit()
+  }
+</script>
