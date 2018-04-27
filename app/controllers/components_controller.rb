@@ -10,7 +10,7 @@ class ComponentsController < ApplicationController
 
     @current_step = Spec::STEPS.index(@category.slug)
     @optional = optional_component?
-
+    session[:new_computer_id] = @computer.id unless current_user
   end
 
   def update
