@@ -135,3 +135,46 @@
 
 }
 
+.edit-btn {
+  background-color: $yellow;
+  border-color: $yellow;
+  &:hover {
+    background-color: $yellow;
+    border-color: $yellow;
+    text-decoration: none;
+  }
+  a {
+    background-color: $yellow;
+    border-color: $yellow;
+    text-decoration: none;
+  }
+}
+
+.remove-btn {
+  background-color: $yellow;
+  border-color: $yellow;
+   &:hover {
+    background-color: $yellow;
+    border-color: $yellow;
+    text-decoration: none;
+  }
+  a {
+    background-color: $yellow;
+    border-color: $yellow;
+    text-decoration: none;
+  }
+}
+
+.save-build {
+  padding-left: 82.5%;
+  color: $orange;
+  &:hover {
+    color: $orange;
+    text-decoration: none;
+  }
+  a {
+    color: $orange;
+    text-decoration: none;
+  }
+}
+

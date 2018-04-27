@@ -20,7 +20,7 @@
         </div> -->
         <% if @components.first.category_id >= 7 %>
         <p class="top-div-text">
-          <span class="optional"> Optional</span> Step <%= @current_step %>: Choose your <%= @category.display_name.singularize %> </p>
+          <span class="optional-steps"> Optional</span>- Step <%= @current_step %>: Choose your <%= @category.display_name.singularize %> </p>
           <% else %>
            <p class="top-div-text">
           Step <%= @current_step %>: Choose your <%= @category.display_name.singularize %> </p>
