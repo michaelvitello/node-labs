@@ -93,4 +93,10 @@
 .btn-success {
   background-color: $orange;
   border-color: $orange;
+
+  &:hover {
+    background-color: $orange;
+    border-color: $orange;
+    opacity: 0.6;
+  }
 }

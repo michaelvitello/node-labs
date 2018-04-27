@@ -8,7 +8,7 @@
 
        <% if !Category::MANDATORIES.include?(@category.slug) %>
           <p class="top-div-text">
-          <span class="optional"> Optional</span> Step <%= @current_step %>: Choose your <%= @category.display_name.singularize %> </p>
+          <span class="optional-steps"> Optional</span> Step <%= @current_step %>: Choose your <%= @category.display_name.singularize %> </p>
         <% else %>
           <p class="top-div-text">
 
@@ -64,23 +64,12 @@
   <% if params[:category] != 'cases' %>
     <%= image_tag "https://www.scan.co.uk/images/infopages/corsair_cases/570x-top.png" %>
   <% end %>
-  <p id="current-price" data-value="<%= @computer.price %>"><%= humanized_money_with_symbol(@computer.price) %></p>
+  <p id="current-price" data-value="<%= @computer.total_price %>"><%= humanized_money_with_symbol(@computer.total_price) %></p>
   <div class="empty"></div>
-
   <div>
     <% if @computer.is_computer_completed? %>
-    <%= button_tag "Finish", type: "submit", class: "btn btn-success",
-    onclick: "submitForm(forms[0], '?finished=true')" %>
+      <%= button_tag "Finish", type: "submit", class: "btn btn-success", onclick: "submitForm(forms[0], '?finished=true')" %>
     <% end %>
-
-    <p id="current-price" data-value="<%= @computer.total_price %>"><%= humanized_money_with_symbol(@computer.total_price) %></p>
-    <div class="empty"></div>
-    <div>
-      <% if @computer.is_computer_completed? %>
-        <%= button_tag "Finish", type: "submit", class: "btn btn-success",
-        onclick: "submitForm(forms[0], '?finished=true')" %>
-      <% end %>
-    </div>
   </div>
 </div>
 
