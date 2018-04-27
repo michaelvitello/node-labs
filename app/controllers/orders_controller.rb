@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
 
   def create
     computer = Computer.find(params[:computer_id])
-    order = Order.new(computer_id: computer.id, amount: computer.price, state: 'pending')
+    order = Order.new(computer_id: computer.id, amount: computer.total_price, state: 'pending')
     if order.save
       redirect_to new_computer_order_payment_path(computer.id, order.id)
     else

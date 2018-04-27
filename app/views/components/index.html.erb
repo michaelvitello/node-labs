@@ -15,15 +15,15 @@
           <div class="col-8">
             <div class="inner-div">
               <% if @current_step >= 2 %>
-              <%= link_to "Previous", computer_components_path(@spec.computer, category: Spec::STEPS[@current_step - 1]), class: "btn btn-primary btn-lg previous"  %>
-                <% if @optional %>
-                  <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: false  %>
-                <% else %>
-                  <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: true  %>
-                <% end %>
+                <%= link_to "Previous", computer_components_path(@spec.computer, category: Spec::STEPS[@current_step - 1]), class: "btn btn-primary btn-lg previous"  %>
+                  <% if @optional %>
+                    <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: false  %>
+                  <% else %>
+                    <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: !@spec.component_id?  %>
+                  <% end %>
               <% else %>
-              <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: true %>
-              <% end %>
+                <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: !@spec.component_id? %>
+                <% end %>
             </div>
           </div>
           <div class="col-4">
@@ -54,7 +54,7 @@
     <% if params[:category] != 'cases' %>
     <%= image_tag "https://www.scan.co.uk/images/infopages/corsair_cases/570x-top.png" %>
     <% end %>
-    <p id="current-price" data-value="<%= @computer.price %>"><%= humanized_money_with_symbol(@computer.price) %></p>
+    <p id="current-price" data-value="<%= @computer.total_price %>"><%= humanized_money_with_symbol(@computer.total_price) %></p>
     <div class="empty"></div>
     <div>
       <% if @computer.is_computer_completed? %>
