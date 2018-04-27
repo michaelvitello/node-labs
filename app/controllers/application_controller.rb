@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  before_action :store_user_location!, if: :storable_location?
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -17,7 +18,16 @@ class ApplicationController < ActionController::Base
       current_computer = Computer.find(session[:new_computer_id])
       current_computer.update(user_id: current_user.id)
     end
-    super
+    # Stores location after sign in for current user
+    stored_location_for(:user) || super
   end
 
+  def storable_location?
+    request.get? && is_navigational_format? && !devise_controller? && !request.xhr?
+  end
+
+  def store_user_location!
+    # :user is the scope we are authenticating
+    store_location_for(:user, request.fullpath)
+  end
 end

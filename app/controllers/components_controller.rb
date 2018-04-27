@@ -9,9 +9,18 @@ class ComponentsController < ApplicationController
     @spec = @computer.specs.find_by(category_id: @category.id)
 
     @current_step = Spec::STEPS.index(@category.slug)
-    @categories_left = Category.all.map(&:slug) - @spec.computer.completed_categories
+    @optional = optional_component?
+    session[:new_computer_id] = @computer.id unless current_user
   end
 
   def update
+  end
+
+
+
+  protected
+
+  def optional_component?
+    !Category::MANDATORIES.include?(Spec::STEPS[@current_step])
   end
 end
