@@ -5,11 +5,28 @@
   <div class="row">
     <div class="col-12">
       <div class="top-div">
-        <% if !Category::MANDATORIES.include?(@category.slug) %>
+
+       <!--  <div class="skip-div">
+        <% if (@categories_left & Category::MANDATORIES).empty? %>
+          <% if @current_step + 1 > Spec::STEPS.keys.size %>
+            <%= link_to computer_path(@computer) do %>
+            <i class="fas fa-arrow-right"></i> <p class="skip">Skip</p>
+            <% end %>
+          <% else %>
+            <%= link_to computer_components_path(:category =>
+            Spec::STEPS[@current_step + 1]) do %>
+            <i class="fas fa-arrow-right"></i> <p class="skip">Skip</p>
+            <% end %>
+          <% end %>
+        <% end %>
+
+        </div> -->
+       <% if !Category::MANDATORIES.include?(@category.slug) %>
           <p class="top-div-text">
           <span class="optional"> Optional</span> Step <%= @current_step %>: Choose your <%= @category.display_name.singularize %> </p>
         <% else %>
           <p class="top-div-text">
+            
           Step <%= @current_step %>: Choose your <%= @category.display_name.singularize %> </p>
         <% end %>
 

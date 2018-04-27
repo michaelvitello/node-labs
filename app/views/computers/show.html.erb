@@ -4,8 +4,11 @@
   <h3 class="text-center m-2">Compulsory parts</h3>
     <%= render "checkout_list", specs: @mandatory_specs, remove_button: false %>
   <h3 class="text-center m-2">Optional parts</h3>
-    <%= render "checkout_list", specs: @optional_specs, remove_button: true %>
-</div>
+
+  <%= render "checkout_list", specs: @optional_specs, remove_button: true %>
+
+  <%= link_to "Save this build", computers_path, class: "save-build" %>
+
 
 
 <div class="pricing-footer">
