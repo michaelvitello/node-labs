@@ -64,8 +64,8 @@
   border-color: #FFCB47;
   z-index: 100;
     &:hover {
-    background-color: #FFCB47 !important;
-    border-color: #FFCB47;
+    // background-color: #FFCB47 !important;
+    // border-color: #FFCB47;
   }
   a {
     background-color: #FFCB47 !important;
@@ -95,6 +95,18 @@
   }
 }
 
+.btn-secondary:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 203, 71);
+    border-color: rgb(255, 203, 71);
+}
+
+.btn-secondary.disabled, .btn-secondary:disabled {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+    pointer-events :none;
+}
 .top-div {
   background-color: $light-gray;
   position: relative;

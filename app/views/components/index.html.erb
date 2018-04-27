@@ -3,22 +3,7 @@
   <div class="row">
     <div class="col-12">
       <div class="top-div">
-       <!--  <div class="skip-div">
-        <% if (@categories_left & Category::MANDATORIES).empty? %>
-          <% if @current_step + 1 > Spec::STEPS.keys.size %>
-            <%= link_to computer_path(@computer) do %>
-            <i class="fas fa-arrow-right"></i> <p class="skip">Skip</p>
-            <% end %>
-          <% else %>
-            <%= link_to computer_components_path(:category =>
-            Spec::STEPS[@current_step + 1]) do %>
-            <i class="fas fa-arrow-right"></i> <p class="skip">Skip</p>
-            <% end %>
-          <% end %>
-        <% end %>
-
-        </div> -->
-        <% if @components.first.category_id >= 7 %>
+        <% if !Category::MANDATORIES.include?(@category.slug) %>
         <p class="top-div-text">
           <span class="optional"> Optional</span> Step <%= @current_step %>: Choose your <%= @category.display_name.singularize %> </p>
           <% else %>
@@ -29,7 +14,14 @@
         <div class="row">
           <div class="col-8">
             <div class="inner-div">
-              <%= link_to "Previous", :back, class: "btn btn-primary btn-lg previous" if @components.first.category_id >= 2 %>
+              <% if @current_step >= 2 %>
+              <%= link_to "Previous", computer_components_path(@spec.computer, category: Spec::STEPS[@current_step - 1]), class: "btn btn-primary btn-lg previous"  %>
+                <% if @optional %>
+                  <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: false  %>
+                <% else %>
+                  <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: true  %>
+                <% end %>
+              <% else %>
               <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: true %>
               <%= image_tag("#{@category.display_name}.png", :alt => "{@category.display_name}", class: "main-image") %>
             </div>
@@ -80,48 +72,4 @@
     }
   </script>
 
-<!--
-<div class="wrapper">
-
-  <input type="checkbox" id="menuToggler" class="input-toggler" />
-<label for="menuToggler" class="menu-toggler">
-  <span class="menu-toggler__line"></span>
-  <span class="menu-toggler__line"></span>
-  <span class="menu-toggler__line"></span>
-</label>
-<aside class="sidebar">
-  <ul class="menu">
-    <li class="menu__item"><a class="menu__link" href="#Case1">Case 1</a></li>
-    <li class="menu__item"><a class="menu__link" href="#Case2">Case 2</a></li>
-    <li class="menu__item"><a class="menu__link" href="#Case3">Case 3</a></li>
-  </ul>
-</aside> -->
-  <!-- <main class="content">
-
-    <div id="Case1">
-      <h1>Case 1</h1>
-      <p>This is the first case</p>
-    </div>
-    <div id="Case2">
-      <h1>Case 2</h1>
-      <p>This is the second case</p>
-    </div>
-    <div id="Case3">
-      <h1>Case 3</h1>
-      <p>This is the third case</p>
-    </div>
-  </main>
-
-  <div class="container case-container">
-    <div class="row">
-      <div class="col-12">
-        <div class="main-div">
-          <button type="button" class="btn btn-primary btn-lg">Next</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- Checks if there are any mandatory components left to select -->
 
