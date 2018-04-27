@@ -1,6 +1,8 @@
 class Order < ApplicationRecord
+
   has_one :computer
   monetize :amount_cents
+
 
   validate :order_contains_mandatory_components
 

@@ -1,19 +1,73 @@
-<h1>Purchase of Computer <%= @order.computer_sku %></h1>
+<div class="page-wrapper">
 
-<%= form_tag computer_order_payments_path(@computer, @order) do %>
+  <h1 class="text-center m-3">Your custom computer</h1>
 
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol @order.amount %></span>
-    </label>
-  </article>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="My Computer"
-    data-email="toto@gmail.com"
-    data-description="Computer <%= @order.computer_sku %>"
-    data-amount="<%= @order.amount_cents %>"
-    data-currency="AUD"></script>
+  <div class="picture-container"><div class="payment-picture"></div></div>
 
-<% end %>
+
+
+  <div class="content-wrapper">
+  <h3 class="top-border-title my-4">Name</h3></div>
+
+  <div class="content-wrapper">
+  <h3 class="top-border-title my-4">Color</h3>
+  </div>
+
+   <div class="summary-color text-center">
+    <div class="color-swatch-red"><p class="color-label">Red</p></div>
+  </div>
+
+    <div class="summary-color text-center mt-3">
+    <div class="color-swatch-blue"><p class="color-label">Blue</p></div>
+  </div>
+
+
+
+  <div class="content-wrapper">
+  <h3 class="top-border-title my-4">Mandatory items</h3></div>
+
+  <div class="center-ul">
+    <ul>
+    <% @order.computer.specs.select(&:mandatory?).each do |spec| %>
+      <li>
+        <%= spec.category.display_name %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="content-wrapper">
+  <h3 class="top-border-title my-4">Optional items</h3></div>
+
+  <div class="center-ul">
+  <ul>
+  <% @order.computer.specs.reject(&:mandatory?).each do |spec| %>
+    <li>
+      <%= spec.category.display_name %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+
+  <div class="footer">
+      <%= form_tag computer_order_payments_path(@computer, @order) do %>
+
+    <article>
+      <label class="amount">
+        <span>Amount: $<%= @order.price_two_decimals %></span>
+      </label>
+    </article>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+      data-name="My Computer"
+      data-email="toto@gmail.com"
+      data-description="Computer <%= @order.computer_sku %>"
+      data-amount="<%= @order.amount_cents %>"
+      data-currency="AUD"></script>
+
+  <% end %>
+  </div>
+</div>
