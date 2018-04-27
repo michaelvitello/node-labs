@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.where(state: 'paid').find(params[:id])
+    @computer = Computer.find(@order.computer_id)
   end
 
   def create

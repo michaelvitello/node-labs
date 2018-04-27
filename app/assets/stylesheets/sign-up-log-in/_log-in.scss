@@ -1,0 +1,39 @@
+
+
+.sign-up-form {
+  width: 50%;
+}
+
+
+.sign-up-form-for {
+  padding-left: 40%;
+}
+
+.new_user {
+  padding-left: 34%;
+}
+
+.sign-up-submit {
+  padding-top: 20px;
+  font-size: 20px;
+  margin-left: 34%;
+}
+
+.sign-up-title {
+  margin: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.sign-up-render {
+    color: $dark-purple !important;
+    text-decoration: none;
+  a {
+    color: $dark-purple !important;
+    text-decoration: none;
+  }
+  &:hover {
+    color: $dark-purple !important;
+  }
+}
