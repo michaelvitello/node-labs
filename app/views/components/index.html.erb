@@ -28,7 +28,7 @@
               <% else %>
                 <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: !@spec.component_id? %>
               <% end %>
-                <%= image_tag("#{@category.display_name}.png", :alt => "{@category.display_name}", class: "main-image") %>
+                <%= image_tag("#{@category.display_name}.png", :alt => "#{@category.display_name}", class: "main-image") %>
             </div>
           </div>
 
@@ -40,7 +40,7 @@
                     <%= f.label :"component_id_#{component.id}", class: "big-label" do %>
                     <%= f.radio_button :component_id, component.id, class: "component-button" %>
                       <div class="components">
-                        <%= image_tag("#{@category.display_name}.png", :alt => "{@category.display_name}", class: "inner-image") %>
+                        <%= image_tag("#{@category.display_name}.png", :alt => "#{@category.display_name}", class: "inner-image") %>
                         <%= component.name %>
                         <p id="component-price" data-value="<%= component.price %>">$<%= component.price %></p>
                       </div>
@@ -64,7 +64,7 @@
   <% if params[:category] != 'cases' %>
     <%= image_tag "https://www.scan.co.uk/images/infopages/corsair_cases/570x-top.png" %>
   <% end %>
-  <p id="current-price" data-value="<%= @computer.total_price %>"><%= humanized_money_with_symbol(@computer.total_price) %></p>
+  <p id="current-price" data-value="<%= @computer.total_price - Money.new(@spec.component.try(:price)) %>"><%= humanized_money_with_symbol(@computer.total_price - Money.new(@spec.component.try(:price))) %></p>
   <div class="empty"></div>
   <div>
     <% if @computer.is_computer_completed? %>
