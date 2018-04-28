@@ -64,7 +64,8 @@
   <% if params[:category] != 'cases' %>
     <%= image_tag "https://www.scan.co.uk/images/infopages/corsair_cases/570x-top.png" %>
   <% end %>
-  <p id="current-price" data-value="<%= @computer.total_price %>"><%= humanized_money_with_symbol(@computer.total_price) %></p>
+  <p id="current-price" data-value="<%= @computer.total_price %>" data-set="<%= @spec.component.to_json %>"><%= humanized_money_with_symbol(@computer.total_price) %></p>
+
   <div class="empty"></div>
   <div>
     <% if @computer.is_computer_completed? %>
