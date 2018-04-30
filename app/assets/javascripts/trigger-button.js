@@ -3,19 +3,21 @@ let totalPrice = document.getElementById("current-price");
 
 componentOptions = Array.prototype.slice.call(componentOptions)
 
-const calculatePrice = function() {
+const componentChanged = function() {
   const checked = document.querySelector(".component-button:checked ~ .components p");
 
   if(checked) {
     total = Number(checked.getAttribute('data-value')) + Number(totalPrice.getAttribute('data-value'));
     totalPrice.innerText = "$" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '.00';
+    desc = checked.getAttribute("data-component-description")
+    document.getElementById("component-description").innerHTML = desc
   }
 };
 
 componentOptions.forEach(function(option) {
   option.addEventListener('click', function(){
     var checked = componentOptions.some(function (option) {
-      calculatePrice();
+      componentChanged();
       return option.checked
     })
 
@@ -28,4 +30,4 @@ componentOptions.forEach(function(option) {
   })
 })
 
-document.addEventListener('DOMContentLoaded', calculatePrice);
+document.addEventListener('DOMContentLoaded', componentChanged);
