@@ -1,6 +1,7 @@
 .order-done {
   font-family: $body-font;
   font-weight: lighter;
+  margin-bottom: 37px;
 }
 
 .order-container {
@@ -12,12 +13,20 @@
   margin-left: auto;
   margin-top: 70px;
   text-align: center;
+  height: 582px;
+  overflow: hidden;
 
   h2 {
     padding-bottom: 20px
   }
+  .order-home {
+    margin-bottom: 53px;
+  }
 }
 
+.order-container .cpu {
+  margin-top: 71px;
+}
 .order-home a {
 
   border: 1px solid #ffcb47;
@@ -29,6 +38,9 @@
   font-weight: bolder;
   opacity: 0.7;
   transition: 0.2s;
+  font-size: 18px;
+  padding-left: 32px;
+  padding-right: 32px;
 
   &:hover {
     opacity: 1;
