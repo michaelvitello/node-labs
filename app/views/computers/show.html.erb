@@ -3,15 +3,8 @@
     <div class="padding-top-bottom-computer-show">
       <h3 id="show-computer-title">Your build</h3>
       <div class="row">
-        <% @mandatory_specs.each do |spec| %>
-          <div class="col-xs-12 col-md-6 col-lg-3 card-padding">
-            <%= render "checkout_list", spec: spec, remove_button: false %>
-          </div>
-        <% end %>
-        <% @optional_specs.each do |spec| %>
-          <div class="col-xs-12 col-md-6 col-lg-3 card-padding">
-            <%= render "checkout_list", spec: spec, remove_button: true %>
-          </div>
+        <% @computer.sorted_specs.each do |spec| %>
+          <%= render "components/spec", spec: spec, edit_functions: true %>
         <% end %>
       </div>
 

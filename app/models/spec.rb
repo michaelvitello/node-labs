@@ -26,5 +26,9 @@ class Spec < ApplicationRecord
   def mandatory?
     Category::MANDATORIES.include?(self.category.slug)
   end
+
+  def position
+    STEPS.index(category.slug)
+  end
 end
 
