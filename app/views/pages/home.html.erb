@@ -1,35 +1,58 @@
+<div class="main-container-home">
+
+  <div class="container first-container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="home-image-div">
+
+          <%= image_tag("larger-images/home-page-image.png", class: "home-image",  :alt => "video-games") %>
+        </div>
+
+        <div class="home-div">
+          <div class="main-container"></div>
+          <div class="main-title">Node Labs</div>
+          <div class="sub-title">The ultimate path to your dream gaming machine.</div>
+          <div class="home-base-line">Create your custom gaming computer with a few simple steps. No experience, no worries. </div>
+
+          <%= link_to "Start Now", computers_path, method: :create, class: "btn btn btn-primary home-btn"  %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <div class="home-div1">
-        <p class="main-title">Node Labs</p>
+  <div class="home-div3">
+    <div class="row help-first-row">
+      <div class="col-sm-12">
+        <div class="home-help-title">Not sure where to start?</div>
+        <div class="home-help-baseline">Don't worry. We're here to help.</div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <div class="subtitle-div">
-        <p class="sub-title">The ultimate path to your dream gaming machine.</p>
+      <div class="row help-second-row">
+        <div class="col-sm-4">
+
+          <div class="card" style="width: 10rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+            <a href="#" class="btn btn-primary">Strategy</a>
+         </div>
+        </div>
+        </div>
+        <div class="col-sm-4">
+          du texte
+        </div>
+        <div class="col-sm-4">
+         du texte
+        </div>
       </div>
+   </div>
+  <div class="row help-third-row">
+    <div class="col-12">
+      <%= link_to "Get Started", computers_path, method: :create, class: "btn btn btn-primary help-home-btn"  %>
     </div>
   </div>
-  <div class="row">
-    <div class="col-12">
-      <div class="home-div2">
-        <div class="home-base-line">Create your custom gaming computer with a few simple steps. No experience, no worries. </div>
-        <%= image_tag("larger-images/case-large.png", :alt => "video-games") %>
-        <%= link_to "Start Now", computers_path, method: :create, class: "btn btn btn-primary home-btn"  %>
-      </div>
-    </div>
-  </div>
-   <div class="row">
-    <div class="col-12">
-      <div class="home-div3">
-        <div class="home-help-baseline">Need help starting?</div>
-        <%= link_to "Get Started", computers_path, method: :create, class: "btn btn btn-primary help-home-btn"  %>
-      </div>
-    </div>
-  </div>
+</div>
 
 <div class="footer-position">
   <%= render 'layouts/footer' %>
