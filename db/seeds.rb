@@ -80,7 +80,7 @@ components_attributes = [
   },
   {
     name: 'ASUS ROG Maximus IX Hero',
-    description: 'The ASUS ROG Maximus IX Hero is going to make an excellent base for a top-performance gaming computer if you have got an unlocked CPU. It offers all up-to-date technologies',
+    description: 'The ASUS ROG Maximus IX Hero is going to make an excellent base for a top-performance gaming computer if you have got an unlocked CPU. It offers all up-to-date technologies for your future high-end gaming configuration.',
     category_id: 2,
     rating: 1,
     price: 699
