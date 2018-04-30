@@ -31,27 +31,31 @@
     </div>
       <div class="row help-second-row">
         <div class="col-sm-4">
-
-          <div class="card" style="width: 10rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card home-card" style="width: 100%">
+            <%= image_tag("games/warcraft.jpg", class: "card-img-top") %>
             <div class="card-body">
-            <a href="#" class="btn btn-primary">Strategy</a>
-         </div>
-        </div>
-        </div>
-        <div class="col-sm-4">
-          du texte
+            <a href="#" class="btn btn-primary card-home-btn">Strategy</a>
+            </div>
+          </div>
         </div>
         <div class="col-sm-4">
-         du texte
+           <div class="card home-card" style="width: 100%">
+            <%= image_tag("games/wow.jpg", class: "card-img-top") %>
+            <div class="card-body">
+            <a href="#" class="btn btn-primary card-home-btn">MMORPG</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card home-card" style="width: 100%">
+            <%= image_tag("games/counter-strike.jpg", class: "card-img-top") %>
+            <div class="card-body">
+            <a href="#" class="btn btn-primary card-home-btn">FPS</a>
+            </div>
+          </div>
         </div>
       </div>
    </div>
-  <div class="row help-third-row">
-    <div class="col-12">
-      <%= link_to "Get Started", computers_path, method: :create, class: "btn btn btn-primary help-home-btn"  %>
-    </div>
-  </div>
 </div>
 
 

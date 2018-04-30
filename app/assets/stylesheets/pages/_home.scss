@@ -4,7 +4,7 @@
 }
 
 .first-container {
-  height: 480px;
+  height: 550px;
   overflow: hidden;
 }
 
@@ -43,7 +43,7 @@
   max-width: 700px;
   max-height: 700px;
   overflow: hidden;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 
@@ -54,8 +54,8 @@
   margin-left: 150px;
   border-radius: 5px;
   margin-top: 50px;
-  top: 20%;
-  left: 35%;
+  top: 30%;
+  left: 40%;
   width: 700px;
 }
 
@@ -136,6 +136,29 @@
   }
 }
 
+.card-home-btn {
+  background-color: transparent;
+  color: black;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  text-align: center;
+  width: 100px;
+  border-color: transparent;
+  &:hover {
+    background-color: transparent !important;
+    border-color: transparent;
+    color: black;
+  }
+  a {
+    background-color: transparent !important;
+    border-color: transparent;
+    color: black;
+  }
+
+}
+
+
 .btn-primary:not(:disabled):not(.disabled):active,
 .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
@@ -156,9 +179,23 @@
 .help-second-row {
   height: 300px;
   width: 700px;
-  margin-top: 30px;
+  margin-top: 50px;
   margin-left: 20%;
   margin-bottom: 20px;
+}
+
+.home-card {
+  width: 300px;
+  height: 300px;
+}
+
+.card-img-top {
+  max-width: 200px;
+  max-height: 130px;
+}
+
+.card-body {
+  text-align: center;
 }
 
 
