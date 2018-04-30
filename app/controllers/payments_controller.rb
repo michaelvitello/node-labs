@@ -19,18 +19,19 @@ class PaymentsController < ApplicationController
     )
 
     @order.update(payment: charge.to_json, state: 'paid')
-    redirect_to computer_order_path(@order.computer_id, @order.id)
+    redirect_to order_path(@order)
 
   rescue Stripe::CardError => e
     flash[:alert] = e.message
     render :new
   end
 
+
 private
 
   def set_order
-    @computer = Computer.find(params[:computer_id])
     @order = Order.where(state: 'pending').find(params[:order_id])
+    @computer = @order.computer
   end
 
 end
