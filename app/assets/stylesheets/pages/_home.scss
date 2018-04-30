@@ -4,6 +4,7 @@
   padding: 16px;
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
+
 }
 
 .home-base-line {
@@ -14,9 +15,28 @@
   left: 10%;
   font-family: "Montserrat", sans-serif;
 }
+.subtitle-div {
+  position: relative;
+  width: 100%;
+  height: 90px;
+  border-radius: 5px;
+  margin-top: -12px;
+  text-align: center;
+  font-size: 23px;
+  margin-bottom: 0px;
+  font-weight: lighter;
+}
 
+.link-div {
+  position: relative;
+  width: 100%;
+  height: 90px;
+  border-radius: 5px;
+  margin-top: -12px;
+  text-align: center;
+  font-size: 23px;
+}
 .home-div1 {
-  background-color: $light-gray;
   position: relative;
   width: 100%;
   height: 90px;
@@ -27,7 +47,6 @@
 
 @media screen and (min-width: 801px) {
   .home-div2 {
-    background-color: $light-gray;
     position: relative;
     width: 100%;
     height: 350px;
@@ -45,7 +64,6 @@
 
 @media screen and (max-width: 800px) {
   .home-div2 {
-    background-color: $light-gray;
     position: relative;
     width: 100%;
     height: 350px;
@@ -61,7 +79,6 @@
 
 
 .home-div3 {
-  background-color: $light-gray;
   position: relative;
   width: 100%;
   height: 500px;
@@ -76,11 +93,11 @@
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
   font-size: 20px;
-  margin: 24px;
+  margin: 20px;
   padding: 10px;
   position: absolute;
   bottom: 13%;
-  left: 10%;
+  left: 8%;
   width: 206px;
   border-color: #FFCB47;
   z-index: 100;

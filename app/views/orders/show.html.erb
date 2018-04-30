@@ -1,5 +1,14 @@
-<h1>Order</h1>
-<ul>
-  <li>Status: <%= @order.state %></li>
-  <li>Amount: <%= humanized_money_with_symbol @order.amount, decimal: 2 %></li>
-<ul>
+
+<div class="order-container">
+  <h2 class="order-done">Payment successful! Our team is picking up your order and we will notify you as soon as we ship your gaming machine! </h2>
+
+  <div class="order-home">
+    <%= link_to "Home", root_path %>
+  </div>
+
+    <%= image_tag("larger-images/case-large.png", :alt => "video-games") %>
+
+</div>
+
+
+

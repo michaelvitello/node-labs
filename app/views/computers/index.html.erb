@@ -1,47 +1,43 @@
 <div class="page-wrapper-computer-index">
-  <h1 class="my-4 text-center">Your builds</h1>
 
-  <div class="picture-container"><img class="payment-picture" src="https://www.scan.co.uk/images/infopages/corsair_cases/570x-top.png" alt="current-case"></img></div>
-
-  <div class="title-wrapper">
-  <h3 class="top-border-title mt-5 mb-3">Total computers: <%= @computers.count %></h3></div>
-
-  <div class="title-wrapper">
-  <h3 class="top-border-title my-4">Completed computers</h3>
-  </div>
-
-        <div class="center-list">
+  <div class="completed-computers">
+    <div class="title-wrapper">
+    <h3 class="top-border-title my-4">Your completed builds</h3>
+    </div>
+    <div class="center-list">
       <div class="list-container-computer-index">
-      <ul>
-      <% @computers.each do |c| %>
-        <% if c.is_computer_completed? %>
-        <li>
-          <%= link_to "Computer: #{@computers.index(c) + 1}", computer_path(c) %>
-        </li>
+        <ul>
+        <% @computers.each do |c| %>
+          <% if c.is_computer_completed? %>
+          <li>
+            <%= link_to "Computer: #{@computers.index(c) + 1}", computer_path(c) %>
+          </li>
+          <% end %>
         <% end %>
-      <% end %>
-      </ul>
+        </ul>
+      </div>
     </div>
   </div>
 
-
-  <div class="title-wrapper">
-  <h3 class="top-border-title my-4">Uncompleted computers</h3>
-  </div>
-
-        <div class="center-list">
- <div class="list-container-computer-index">
-      <ul>
-      <% @computers.each do |c| %>
-        <% if !c.is_computer_completed? %>
-        <li>
-          <%= link_to "Computer: #{@computers.index(c) + 1}", computer_path(c) %>
-        </li>
+  <div class="uncompleted-computers">
+    <div class="title-wrapper">
+      <h3 class="top-border-title my-4">Uncompleted builds</h3>
+    </div>
+    <div class="center-list">
+      <div class="list-container-computer-index">
+        <ul>
+        <% @computers.each do |c| %>
+          <% if !c.is_computer_completed? %>
+          <li>
+            <%= link_to "Computer: #{@computers.index(c) + 1}", computer_path(c) %>
+          </li>
+          <% end %>
         <% end %>
-      <% end %>
-      </ul>
+        </ul>
+      </div>
     </div>
   </div>
+</div>
 
 
 
