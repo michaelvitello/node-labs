@@ -6,19 +6,29 @@
 
 .order-container {
   width: 100%;
-  max-width: 720px;
+  position: fixed;
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
   margin-top: 70px;
   text-align: center;
-  height: 582px;
+  height: 100%;
   overflow: hidden;
 
-  h2 {
-    padding-bottom: 20px
+  img {
+    bottom: 0;
   }
+
+  h2 {
+    padding-bottom: 20px;
+    padding-right: 175px;
+    padding-left: 175px;
+    align-items: center;
+
+    .order-done {
+      margin: 0px;
+    }
+  }
+
   .order-home {
     margin-bottom: 53px;
   }
@@ -27,6 +37,7 @@
 .order-container .cpu {
   margin-top: 71px;
 }
+
 .order-home a {
 
   border: 1px solid #ffcb47;
