@@ -1,0 +1,36 @@
+.order-done {
+  font-family: $body-font;
+  font-weight: lighter;
+}
+
+.order-container {
+  width: 100%;
+  max-width: 720px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 70px;
+  text-align: center;
+
+  h2 {
+    padding-bottom: 20px
+  }
+}
+
+.order-home a {
+
+  border: 1px solid #ffcb47;
+  text-decoration: none;
+  padding: 12px;
+  margin-left: auto;
+  border-radius: 3px;
+  color: #ffcb47;
+  font-weight: bolder;
+  opacity: 0.7;
+  transition: 0.2s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
