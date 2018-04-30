@@ -12,6 +12,7 @@
               <span class="optional-steps"> Optional</span> Step <%= @current_step %>: Choose your <%= @category.display_name.singularize %> </p>
             <% else %>
               <p class="top-div-text">
+                <%= image_tag("icons/#{@category.slug}.png", class: "category-icon")%>
               Step <%= @current_step %>: Choose your <%= @category.display_name.singularize %> </p>
             <% end %>
 
@@ -26,9 +27,10 @@
             <% else %>
               <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: !@spec.component_id? %>
             <% end %>
-
-            <%= image_tag("#{@category.display_name}.png", :alt => "#{@category.display_name}", class: "main-image") %>
-            <div id="component-description"></div>
+            <div class="component-image">
+              <%= image_tag("#{@category.slug}/#{@category.slug}-1-main.png", :alt => "#{@category.display_name}", class: "main-image") %>
+            </div>
+              <div id="component-description"></div>
           </div>
         </div>
       </div>
@@ -40,9 +42,14 @@
         <%= f.label :"component_id_#{component.id}", class: "big-label" do %>
         <%= f.radio_button :component_id, component.id, class: "component-button" %>
         <div class="components">
-          <%= image_tag("#{@category.display_name}.png", :alt => "#{@category.display_name}", class: "inner-image") %>
-          <%= component.name %>
-          <p id="component-price" data-value="<%= component.price %>" data-component-description="<%= component.description %>">$<%= component.price %></p>
+          <div class="component-picture">
+            <%= image_tag("#{@category.slug}/#{@category.slug}-#{component.rating}-main.png", :alt => "#{@category.display_name}", class: "inner-image") %>
+          </div>
+          <div class="component-details">
+            <div class="component-name"><%= component.name %></div>
+            <p id='component-price' data-value='<%= component.price %>' data-component-description='<%= component.description %>' data-component-picture='<%= image_path("#{@category.slug}/#{@category.slug}-#{component.rating}-main.png") %>'>$<%= component.price %>
+            </p>
+          </div>
         </div>
       <% end %>
       <% end %>
@@ -52,13 +59,13 @@
 
   <div class="pricing-footer">
     <% if params[:category] != 'cases' %>
-      <%= image_tag "https://www.scan.co.uk/images/infopages/corsair_cases/570x-top.png" %>
+      <%= image_tag ("cases/cases-2-icon.png"), class: "footer-image"%>
     <% end %>
     <p id="current-price" data-value="<%= @computer.total_price - Money.new(@spec.component.try(:price)) %>"><%= humanized_money_with_symbol(@computer.total_price - Money.new(@spec.component.try(:price))) %></p>
     <div class="empty"></div>
     <div>
       <% if @computer.is_computer_completed? %>
-        <%= button_tag "Finish", type: "submit", class: "btn btn-success", onclick: "submitForm(forms[0], '?finished=true')" %>
+        <%= button_tag "Finish", type: "submit", class: "btn btn-finish", onclick: "submitForm(forms[0], '?finished=true')" %>
       <% end %>
     </div>
   </div>

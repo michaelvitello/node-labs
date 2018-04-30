@@ -11,6 +11,8 @@ const componentChanged = function() {
     totalPrice.innerText = "$" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '.00';
     desc = checked.getAttribute("data-component-description")
     document.getElementById("component-description").innerHTML = desc
+    pic = checked.getAttribute("data-component-picture");
+    document.querySelector(".main-image").src = pic;
   }
 };
 
