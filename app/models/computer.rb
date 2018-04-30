@@ -20,6 +20,10 @@ class Computer < ApplicationRecord
     components.map(&:price).sum
   end
 
+  def sorted_specs
+    specs.sort_by(&:position)
+  end
+
   protected
 
   def populate_specs

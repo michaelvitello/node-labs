@@ -1,0 +1,38 @@
+<div class="col-xs-12 col-md-6 col-lg-3 card-padding">
+  <div class="card-wrapper card-row-margin">
+    <div class="component-item">
+
+      <div class="name-category-item">
+        <div class="category text-center py-1 text-muted"><%= spec.category.display_name %></div>
+        <div class="name text-center py-2"><%= spec.component.try(:name)&.upcase %></div>
+
+        <% if edit_functions && !spec.mandatory? && spec.component_id %>
+          <%= link_to computer_spec_path(@computer.id, spec.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fas fa-times delete-icon"></i>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="price-btn-item py-2">
+
+        <div class="component-icons">
+          <%= image_tag "icons/#{spec.category.slug}.png", size:"20"%>
+        </div>
+
+        <div class="price">
+          <%= spec.component&.price_dollar_sign %>
+        </div>
+
+        <% if edit_functions %>
+          <% if spec.mandatory? %>
+            <div>
+              <%= link_to "EDIT", computer_components_path(@computer.id, category: spec.category.slug), method: :get, class: "btn btn-edit-add" %></div>
+          <% else %>
+            <div>
+              <%= link_to "ADD", computer_components_path(@computer.id, category: spec.category.slug), method: :get, class: "btn btn-edit-add" %></div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

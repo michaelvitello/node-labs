@@ -10,13 +10,6 @@ class ComputersController < ApplicationController
   def show
     @computer = Computer.find(params[:id])
 
-    @mandatory_specs = @computer.specs.map {
-      |spec| spec if spec.mandatory?
-    }.compact
-    @optional_specs = @computer.specs.map {
-      |spec| spec if !spec.mandatory?
-    }.compact
-
     @specs_with_component = @computer.specs.with_component
     @specs_without_component = @computer.specs.without_component
     session[:new_computer_id] = @computer.id
