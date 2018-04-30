@@ -1,180 +1,85 @@
-.page-wrapper {
-    padding-bottom: 100px;
+#show-computer-title {
+  font-weight: lighter;
+  font-size: 23px;
   }
+
+.padding-top-bottom-computer-show {
+  padding: 30px 0px 150px 0px;
+   }
+
+.name-category-item {
+  min-height: 90px;
+  position: relative;
+  }
+
+.delete-icon {
+  position: absolute;
+  top: 4px;
+  right: 20px;
+}
+
+.price-btn-item {
+  background-color: #e0e0e0;
+  // display: flex;
+  // justify-content: space-around;
+  // align-items: center;
+  position: relative;
+  height: 35px;
+  transition: 0.3s;
+  &:hover {
+    background-color: #ffcb47;
+    }
+  }
+
+.btn-edit-add {
+    background-color: #ffffff;
+    border-color: #ffcb47;
+    color: black;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 2px 15px;
+    border: none;
+    border-radius: 1px;
+    min-width: 56px;
+    position: absolute;
+    top: 7px;
+    right: 10px;
+
+  &:active {
+    background-color: #ffffff !important;
+    border-color: #ffffff !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+  }
+  &:hover {
+    background-color: #ffffff;
+    border-color: #ffcb47;
+    color: black;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+  }
+
+.card-padding {
+    padding: 0px 1px;
+  }
+
+.category {
+    font-size: 11px;
+  }
+
+.price {
+    color: white;
+    position: absolute;
+    top: 7px;
+    left: 10px;
+  }
+
+.name {
+  font-weight: bold;
+  font-size: 15px;
+}
 
 // On screens that are 768px or less
-@media screen and (max-width: 768px) {
-  .page-wrapper {
-    max-width: 900px;
-    margin: 50px auto;
-  }
-
-  .component-wrapper {
-    font-size: 13px;
-  }
-
-  .component-item-wrapper {
-    margin: 20px 0px;
-  }
-
-  .component-item {
-    padding: 20px;
-    border: 2px solid rgb(220,220,220);
-    border-radius: 2px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-  }
-
-  .name {
-    flex-grow: 1;
-    margin: 10px 0px;
-  }
-
-  .picture {
-    display: none;
-  }
-
-  .category {
-    font-size: 17px;
-    margin: 0px 20px;
-  }
-
-  .computer-btn-style-sm {
-    margin: 5px 50px;
-  }
-
-  .margin-btn {
-    margin: 2px 0px;
-    a {
-      font-size: 11px;
-    }
-  }
-
-  .btn-width {
-    width: 58px;
-  }
-
-}
-
-// On screens that are 3000px or less
-@media screen and (max-width: 3000px) {
-
-  .page-wrapper {
-    max-width: 900px;
-    margin: 50px auto;
-  }
-
-  .component-wrapper {
-    font-size: 13px;
-  }
-
-  .component-item-wrapper {
-    margin: 20px 0px;
-  }
-
-  .component-item {
-    padding: 20px;
-    border: 2px solid rgb(220,220,220);
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-
-  .name {
-    flex-grow: 1;
-  }
-
-  .picture {
-    background-color: gray;
-    margin: 0px 20px;
-    min-width: 100px;
-    height: 100px;
-  }
-
-  .category {
-    margin: 0px 20px;
-    min-width: 100px;
-  }
-
-  .price {
-    margin: 0px 20px;
-  }
-
-  .computer-btn-style {
-    margin-left: 50px;
-    margin-right: 60px;
-    display: flex;
-    flex-direction: column;
-    a {
-      color: white;
-    }
-  }
-
-  .computer-btn-style-optionals {
-    margin: 0px 50px;
-    display: flex;
-    flex-direction: column;
-    a {
-      color: white;
-    }
-  }
-
-  .margin-btn {
-    margin: 2px 0px;
-    a {
-      font-size: 11px;
-    }
-  }
-
-  .btn-width {
-    width: 58px;
-  }
-
-}
-
-.edit-btn {
-  background-color: $yellow;
-  border-color: $yellow;
-  &:hover {
-    background-color: $yellow;
-    border-color: $yellow;
-    text-decoration: none;
-  }
-  a {
-    background-color: $yellow;
-    border-color: $yellow;
-    text-decoration: none;
-  }
-}
-
-.remove-btn {
-  background-color: $yellow;
-  border-color: $yellow;
-   &:hover {
-    background-color: $yellow;
-    border-color: $yellow;
-    text-decoration: none;
-  }
-  a {
-    background-color: $yellow;
-    border-color: $yellow;
-    text-decoration: none;
-  }
-}
-
-.save-build {
-  padding-left: 82.5%;
-  color: $orange;
-  &:hover {
-    color: $orange;
-    text-decoration: none;
-  }
-  a {
-    color: $orange;
-    text-decoration: none;
-  }
-}
-
+// @media screen and (max-width: 768px) {

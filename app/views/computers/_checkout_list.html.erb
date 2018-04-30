@@ -1,32 +1,34 @@
-<div class="component-wrapper">
-  <% specs.each do |spec| %>
-    <div class="component-item-wrapper">
+<div class="card-wrapper my-2">
+  <div class="component-item">
 
-      <div class="component-item">
-        <div class="picture"></div>
-        <div class="category text-center"><%= spec.category.display_name %></div>
-        <div class="name"><%= spec.component.try(:name) %></div>
-        <% if spec.component_id %>
-          <div class="price-sm text-center">
-          <div class="price text-center">
-          $<%= spec.component.price %>
-          </div>
-          </div>
+    <div class="name-category-item">
+      <div class="category text-center py-1 text-muted"><%= spec.category.display_name %></div>
+      <div class="name text-center py-2"><%= spec.component.try(:name)&.upcase %></div>
+
+      <% if remove_button && spec.component_id %>
+        <%= link_to computer_spec_path(@computer.id, spec.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <i class="fas fa-times delete-icon"></i>
         <% end %>
-        <div class="computer-btn-style-sm">
-        <div class="computer-btn-style">
-        <div class="margin-btn btn btn-primary btn-sm btn-width edit-btn"><%= link_to "Edit", computer_components_path(@computer.id, category: spec.category.slug) %></div>
-          <% if remove_button %>
-          <% if spec.component_id %>
-            <div class="margin-btn btn btn-danger btn-sm btn-width remove-btn">
-            <%= link_to "Remove", computer_spec_path(@computer.id, spec.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-            </div>
-          <% end %>
-          <% end %>
-        </div>
-        </div>
+      <% end %>
+    </div>
+
+    <div class="price-btn-item py-2">
+      <div class="price">
+        <%= spec.component&.price_dollar_sign %>
       </div>
 
+
+      <% if !remove_button %>
+        <div>
+          <%= link_to "EDIT", computer_components_path(@computer.id, category: spec.category.slug), method: :get, class: "btn btn-edit-add" %></div>
+      <% else %>
+        <div>
+          <%= link_to "ADD", computer_components_path(@computer.id, category: spec.category.slug), method: :get, class: "btn btn-edit-add" %></div>
+      <% end %>
     </div>
-  <% end %>
+
+  </div>
 </div>
+
+
+

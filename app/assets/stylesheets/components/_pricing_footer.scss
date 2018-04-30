@@ -90,13 +90,46 @@
   }
 }
 
-.btn-success {
-  background-color: $orange;
-  border-color: $orange;
+.btn-buy {
+  background-color: #ffcb47;
+  border-color: #ffcb47;
+  color: white;
 
+  &:active {
+    background-color: #ffcb47 !important;
+    border-color: #ffcb47 !important;
+    opacity: 0.6 !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+  }
   &:hover {
-    background-color: $orange;
-    border-color: $orange;
+    background-color: #ffcb47;
+    border-color: #ffcb47;
     opacity: 0.6;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+}
+
+.btn-save {
+    background-color: #ffffff;
+    border-color: #ffcb47;
+    color: #ffcb47;
+
+  &:active {
+    background-color: #ffffff !important;
+    border-color: #ffffff !important;
+    opacity: 0.8 !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+  }
+  &:hover {
+    background-color: #ffffff;
+    border-color: #ffcb47;
+    opacity: 0.8;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
   }
 }
