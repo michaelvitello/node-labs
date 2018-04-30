@@ -1,4 +1,4 @@
-<div class="card-wrapper my-2">
+<div class="card-wrapper card-row-margin">
   <div class="component-item">
 
     <div class="name-category-item">
@@ -13,6 +13,11 @@
     </div>
 
     <div class="price-btn-item py-2">
+
+      <div class="component-icons">
+        <%= image_tag "icons/#{spec.category.slug}.png", size:"20"%>
+      </div>
+
       <div class="price">
         <%= spec.component&.price_dollar_sign %>
       </div>

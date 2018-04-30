@@ -1,26 +1,28 @@
-<div class="container">
-  <div class="padding-top-bottom-computer-show">
-    <h3 id="show-computer-title">Your build</h3>
-    <div class="row">
-      <% @mandatory_specs.each do |spec| %>
-        <div class="col-xs-12 col-sm-6 col-md-3 card-padding">
-          <%= render "checkout_list", spec: spec, remove_button: false %>
-        </div>
-      <% end %>
-      <% @optional_specs.each do |spec| %>
-        <div class="col-xs-12 col-sm-6 col-md-3 card-padding">
-          <%= render "checkout_list", spec: spec, remove_button: true %>
-        </div>
-      <% end %>
-    </div>
+<div class="background-color-computer-show">
+  <div class="container">
+    <div class="padding-top-bottom-computer-show">
+      <h3 id="show-computer-title">Your build</h3>
+      <div class="row">
+        <% @mandatory_specs.each do |spec| %>
+          <div class="col-xs-12 col-md-6 col-lg-3 card-padding">
+            <%= render "checkout_list", spec: spec, remove_button: false %>
+          </div>
+        <% end %>
+        <% @optional_specs.each do |spec| %>
+          <div class="col-xs-12 col-md-6 col-lg-3 card-padding">
+            <%= render "checkout_list", spec: spec, remove_button: true %>
+          </div>
+        <% end %>
+      </div>
 
-    <div class="pricing-footer">
-      <img src="https://www.scan.co.uk/images/infopages/corsair_cases/570x-top.png" alt="current-case">
-      <p><%= humanized_money_with_symbol(@computer.total_price) %></p>
-      <div class="empty"></div>
+      <div class="pricing-footer">
+        <img src="https://www.scan.co.uk/images/infopages/corsair_cases/570x-top.png" alt="current-case">
+        <p><%= humanized_money_with_symbol(@computer.total_price) %></p>
+        <div class="empty"></div>
 
-      <div><%= button_to "Save", computers_path, method: :get, class: "btn btn-save" %></div>
-      <div><%= button_to "Buy", computer_orders_path(@computer.id), method: :post, class: "btn btn-buy" %></div>
+        <div><%= button_to "Save", computers_path, method: :get, class: "btn btn-save" %></div>
+        <div><%= button_to "Buy", computer_orders_path(@computer.id), method: :post, class: "btn btn-buy" %></div>
+      </div>
     </div>
   </div>
 </div>

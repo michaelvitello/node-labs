@@ -1,15 +1,17 @@
 #show-computer-title {
   font-weight: lighter;
   font-size: 23px;
+  margin-bottom: 30px;
   }
 
 .padding-top-bottom-computer-show {
-  padding: 30px 0px 150px 0px;
+  padding: 60px 0px 150px 0px;
    }
 
 .name-category-item {
   min-height: 90px;
   position: relative;
+  background-color: white;
   }
 
 .delete-icon {
@@ -20,9 +22,6 @@
 
 .price-btn-item {
   background-color: #e0e0e0;
-  // display: flex;
-  // justify-content: space-around;
-  // align-items: center;
   position: relative;
   height: 35px;
   transition: 0.3s;
@@ -65,6 +64,10 @@
     padding: 0px 1px;
   }
 
+.card-row-margin {
+  margin: 1px 0px;
+  }
+
 .category {
     font-size: 11px;
   }
@@ -73,12 +76,22 @@
     color: white;
     position: absolute;
     top: 7px;
-    left: 10px;
+    left: 60px;
+  }
+
+.component-icons {
+    position: absolute;
+    top: 6px;
+    left: 20px;
   }
 
 .name {
   font-weight: bold;
   font-size: 15px;
+}
+
+.background-color-computer-show {
+  background-color: #EFEFEF;
 }
 
 // On screens that are 768px or less
