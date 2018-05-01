@@ -7,7 +7,6 @@
           <%= render "components/spec", spec: spec, edit_functions: true %>
         <% end %>
       </div>
-
       <div class="pricing-footer">
         <%= image_tag ("cases/cases-#{@case_number}-main.png"), class: "footer-image"%>
         <p><%= humanized_money_with_symbol(@computer.total_price) %></p>
