@@ -4,32 +4,19 @@ class ComputersController < ApplicationController
 
   def index
     @computers = current_user.computers
-
   end
 
   def show
     @computer = Computer.find(params[:id])
-
-    save_case_number
-
-    @specs_with_component = @computer.specs.with_component
-    @specs_without_component = @computer.specs.without_component
     session[:new_computer_id] = @computer.id
-
   end
 
   def new
   end
 
   def create
-    @computer = Computer.new
-    if current_user
-      @computer.user = current_user
-    end
-    @computer.save
-    redirect_to computer_components_path(@computer, category: "cases")
+    redirect_to computer_components_path(Computer.create(user: current_user))
   end
-
 
   def edit
   end
@@ -38,8 +25,7 @@ class ComputersController < ApplicationController
   end
 
   def destroy
-    @computer.destroy
-    redirect_to computer_path(@computer)
+    redirect_to computer_path(@computer.destroy)
   end
 
   protected
@@ -47,9 +33,4 @@ class ComputersController < ApplicationController
   def set_computers
     @computer = Computer.find(params[:id])
   end
-
-  def save_case_number
-    @case_number = @computer.specs.where(category_id: 1).first.component&.rating
-  end
-
 end

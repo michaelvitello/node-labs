@@ -1,8 +1,9 @@
 class ComponentsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
-
   def index
+    params["category"] ||= Spec::STEPS.values.first
+
     @category = Category.find_by(slug: params["category"])
     @components = @category.components.order('rating DESC')
     @computer = Computer.find(params["computer_id"])
