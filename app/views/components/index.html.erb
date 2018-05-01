@@ -1,81 +1,29 @@
 <%= simple_form_for [@computer, @spec] do |f| %>
-
   <div class="main-container">
-
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="top-div">
-
-            <% if !Category::MANDATORIES.include?(@category.slug) %>
-              <p class="top-div-text">
-               <%= image_tag("icons/#{@category.slug}.png", class: "category-icon")%> Step <%= @current_step %>: Choose your <%= @category.display_name.singularize%><span class="optional-steps">(Optional)</span> </p>
-            <% else %>
-              <p class="top-div-text">
-                <%= image_tag("icons/#{@category.slug}.png", class: "category-icon")%>
-              Step <%= @current_step %>: Choose your <%= @category.display_name.singularize %> </p>
-            <% end %>
-
-
-            <% if @current_step >= 2 %>
-              <%= link_to "Previous", computer_components_path(@spec.computer, category: Spec::STEPS[@current_step - 1]), class: "btn btn-primary btn-lg previous"  %>
-              <% if @optional %>
-                <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: false  %>
-              <% else %>
-                <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: !@spec.component_id?  %>
-              <% end %>
-            <% else %>
-              <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: !@spec.component_id? %>
-            <% end %>
-            <div class="component-image">
-              <%= image_tag("#{@category.slug}/#{@category.slug}-1-main.png", :alt => "#{@category.display_name}", class: "main-image") %>
-            </div>
-              <div id="component-description"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="right-div">
-      <% @components.each do |component| %>
-        <%= f.label :"component_id_#{component.id}", class: "big-label" do %>
-        <%= f.radio_button :component_id, component.id, class: "component-button" %>
-        <div class="components">
-          <div class="component-picture">
-            <%= image_tag("#{@category.slug}/#{@category.slug}-#{component.rating}-main.png", :alt => "#{@category.display_name}", class: "inner-image") %>
-          </div>
-          <div class="component-details">
-            <div class="component-name"><%= component.name %></div>
-            <p id='component-price' data-value='<%= component.price %>' data-component-description='<%= component.description %>' data-component-picture='<%= image_path("#{@category.slug}/#{@category.slug}-#{component.rating}-main.png") %>'>$<%= component.price %>
-            </p>
-          </div>
-        </div>
-      <% end %>
-      <% end %>
-    </div>
+    <%= render 'image_container', f: f %>
+    <%= render 'component_selector', f: f %>
   </div>
 
-
   <div class="pricing-footer">
-    <% if params[:category] != 'cases' %>
-      <%= image_tag ("cases/cases-#{@case_number}-main.png"), class: "footer-image"%>
-    <% end %>
-    <p id="current-price" data-value="<%= @computer.total_price - Money.new(@spec.component.try(:price)) %>"><%= humanized_money_with_symbol(@computer.total_price - Money.new(@spec.component.try(:price))) %></p>
+    <%= image_tag component_path(:cases, @computer.case_number), class: "footer-image" if @computer.case_number %>
+    <%= price_tag(@spec) %>
+
     <div class="empty"></div>
     <div>
-      <% if @computer.is_computer_completed? %>
-        <%= button_tag "Finish", type: "submit", class: "btn btn-finish", onclick: "submitForm(forms[0], '?finished=true')" %>
-      <% end %>
+      <%= button_tag "Finish", {
+          type: "submit",
+          class: "btn btn-finish",
+          onclick: "submitForm(forms[0], '?finished=true')"
+        } if @computer.is_computer_completed? %>
     </div>
   </div>
 <% end %>
 
 <!-- This is the JS to update price in real-time -->
 
-<script type="text/javascript">
+<% javascript_tag do %>
 function submitForm(form, params) {
   form.action = form.action + params
   form.submit()
 }
-</script>
+<% end %>

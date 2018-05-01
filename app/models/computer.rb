@@ -24,6 +24,12 @@ class Computer < ApplicationRecord
     specs.sort_by(&:position)
   end
 
+  def case_number
+    specs.where(
+      category_id: Category.find_by(slug: Spec::STEPS.values.first)
+    ).first.try(:component).try(:rating)
+  end
+
   protected
 
   def populate_specs

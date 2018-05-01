@@ -31,4 +31,3 @@ class Spec < ApplicationRecord
     STEPS.index(category.slug)
   end
 end
-

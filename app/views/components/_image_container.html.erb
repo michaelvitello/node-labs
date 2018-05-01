@@ -1,0 +1,17 @@
+<div class="image-container" style="background-image: url(<%= image_path(component_path(@category.slug, @components.first.rating)) %>)">
+  <p class="top-div-text">
+  <%= image_tag("icons/#{@category.slug}.png", class: "category-icon")%>
+  Step <%= @current_step %>: Choose your <%= @category.display_name.singularize %>
+  <%= content_tag :span, '(Optional)' unless Category::MANDATORIES.include?(@category.slug) %>
+ </p>
+
+  <div class="component-infos">
+    <div class="component-description">
+      <%= @components.first.description %>
+    </div>
+    <div class="component-navigation">
+      <%= link_to "Previous", computer_components_path(@spec.computer, category: Spec::STEPS[@current_step - 1]), class: "btn btn-secondary btn-lg" if @current_step >= 2 %>
+      <%= f.submit "Next", class: "btn btn-secondary btn-lg next", disabled: (@optional ? false : !@spec.component_id?)  %>
+    </div>
+  </div>
+</div>

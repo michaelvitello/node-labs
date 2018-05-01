@@ -9,10 +9,10 @@ const componentChanged = function() {
   if(checked) {
     total = Number(checked.getAttribute('data-value')) + Number(totalPrice.getAttribute('data-value'));
     totalPrice.innerText = "$" + total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '.00';
-    desc = checked.getAttribute("data-component-description")
-    document.getElementById("component-description").innerHTML = desc
+    desc = checked.getAttribute("data-component-description");
+    document.querySelector(".component-description").innerHTML = desc;
     pic = checked.getAttribute("data-component-picture");
-    document.querySelector(".main-image").src = pic;
+    document.querySelector(".image-container").style = "background-image:url(" + pic + ")";
   }
 };
 
@@ -23,12 +23,8 @@ componentOptions.forEach(function(option) {
       return option.checked
     })
 
-    if (checked) {
-      var nextButton = document.getElementsByClassName('next')[0]
-      // nextButton.style = "display: block;"
-      nextButton.disabled = false;
-
-    }
+    if (checked)
+      document.querySelector('.next').disabled = false;
   })
 })
 

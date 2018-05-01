@@ -1,0 +1,18 @@
+<div class="component-selector">
+  <% first = true %>
+  <% @components.each do |component| %>
+    <%= f.label :"component_id_#{component.id}", class: "big-label" do %>
+    <%= f.radio_button :component_id, component.id, class: "component-button" %>
+    <div class="components <%= first ? 'first' : '' %>">
+      <div class="component-picture">
+        <%= image_tag(component_image_path(component), alt: @category.display_name, class: "inner-image") %>
+      </div>
+      <div class="component-details">
+        <div class="component-name"><%= component.name %></div>
+        <%= component_price_tag(component) %>
+      </div>
+    </div>
+    <% first = false %>
+  <% end %>
+  <% end %>
+</div>
