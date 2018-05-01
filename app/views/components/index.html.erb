@@ -59,7 +59,7 @@
 
   <div class="pricing-footer">
     <% if params[:category] != 'cases' %>
-      <%= image_tag ("cases/cases-2-icon.png"), class: "footer-image"%>
+      <%= image_tag ("cases/cases-#{@case_number}-main.png"), class: "footer-image"%>
     <% end %>
     <p id="current-price" data-value="<%= @computer.total_price - Money.new(@spec.component.try(:price)) %>"><%= humanized_money_with_symbol(@computer.total_price - Money.new(@spec.component.try(:price))) %></p>
     <div class="empty"></div>

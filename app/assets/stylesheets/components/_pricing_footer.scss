@@ -25,7 +25,7 @@
     p {
       margin: 0px;
       color: black;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 900;
     }
 
@@ -62,15 +62,15 @@
     img {
       // background-color: white;
       // border: solid 1px black;
-      height: 60px;
-      width: 50px;
+      height: 40px;
+      width: 30px;
       margin-right: 25px;
     }
 
     p {
       margin: 0px;
       color: black;
-      font-size: 32px;
+      font-size: 24px;
       font-weight: 900;
       border-left: solid 1px black;
       padding-left: 25px;
@@ -81,9 +81,9 @@
     }
 
     .btn {
-      height: 42px;
-      width: 127px;
-      font-size: 20px;
+      height: 39px;
+      width: 110px;
+      font-size: 18px;
       margin: 10px;
       padding: 5px;
     }
@@ -91,9 +91,9 @@
 }
 
 .btn-buy {
-  background-color: #ffcb47;
+  background-color: #ffffff;
   border-color: #ffcb47;
-  color: white;
+  color: #ffcb47;
 
   &:active {
     background-color: #ffcb47 !important;
@@ -104,7 +104,8 @@
   &:hover {
     background-color: #ffcb47;
     border-color: #ffcb47;
-    opacity: 0.6;
+    opacity: 1;
+    color: white;
   }
 
   &:focus {
@@ -124,9 +125,10 @@
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
   }
   &:hover {
-    background-color: #ffffff;
+    background-color: #ffcb47;
+    color: white;
     border-color: #ffcb47;
-    opacity: 0.8;
+    // opacity: 0.8;
   }
 
   &:focus {
