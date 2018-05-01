@@ -1,6 +1,6 @@
 <div class="background-color-computer-index">
   <div class="container">
-  <h3 id="saved-builds-title" class="my-3"><%= image_tag "icons/cases.png", width: 27, height: 36, class:"image-right-margin" %> Your saved builds</h3>
+  <h3 id="saved-builds-title" class="my-3"><%= image_tag "icons/cases.png", width: 27, height: 36, class:"image-right-margin-on-title" %> Your saved builds</h3>
     <div class="row">
         <% @computers.each do |c| %>
           <% if c.is_computer_completed? %>
@@ -14,7 +14,7 @@
           <% end %>
         <% end %>
     </div>
-  <h3 id="uncompleted-builds-title" class="mt-5 mb-3"><%= image_tag "icons/uncompleted-computer.png", width: 27, height: 36, class:"image-right-margin" %> Uncompleted builds</h3>
+  <h3 id="uncompleted-builds-title" class="mt-5 mb-3"><%= image_tag "icons/uncompleted-computer.png", width: 27, height: 36, class:"image-right-margin-on-title" %> Uncompleted builds</h3>
     <div class="row">
       <% @computers.each do |c| %>
         <% if !c.is_computer_completed? %>

@@ -13,7 +13,10 @@
         <div class="empty"></div>
 
         <div><%= button_to "Save", computers_path, method: :get, class: "btn btn-save" %></div>
+        <% if @computer.is_computer_completed? %>
         <div><%= button_to "Buy", computer_orders_path(@computer.id), method: :post, class: "btn btn-buy" %></div>
+        <% end %>
+
       </div>
     </div>
   </div>
