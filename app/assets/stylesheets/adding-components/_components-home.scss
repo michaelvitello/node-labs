@@ -157,7 +157,7 @@
   z-index: 97;
   text-align: center;
   padding: 50px;
-  height: 33%;
+  height: 230px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -212,18 +212,4 @@
   opacity: 1;
   color: black;
   border-left: $yellow solid 15px;
-}
-
-.optional-steps {
-  border-radius: 3px;
-  text-align: center;
-  // border: $orange solid 2px;
-  // background-color: $orange;
-  // opacity: 0.8;
-  font-weight: bold;
-  color: $orange;
-  margin: 5px;
-  padding: 5px;
-  margin-right: 0px;
-  margin-left: -15px;
 }

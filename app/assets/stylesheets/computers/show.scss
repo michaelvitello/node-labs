@@ -40,6 +40,13 @@
   right: 20px;
   }
 
+.delete-icon-color {
+  color: red;
+  &:hover {
+    color: red;
+  }
+}
+
 .price-btn-item {
   background-color: #e0e0e0;
   position: relative;

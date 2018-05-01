@@ -1,57 +1,48 @@
- .page-wrapper-computer-index {
-    max-width: 900px;
-    margin: 50px auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+// page alignment
+.background-color-computer-index {
+  background-color: #EFEFEF;
+  padding: 20px 0px 40px 0px;
+  min-height: calc(100vh - 100px);
+  // added this min height thing becuase the content on this page can be very dynamic, you can have lots of computers or none
   }
 
-.picture-container {
+// card styling
+.card-container {
+  min-height: 50px;
+  background-color: white;
   display: flex;
   justify-content: center;
-}
-
-.payment-picture {
-  width: auto;
-  height: 400px;
-}
-
-.title-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.top-border-title {
-    font-size: 20px;
-}
-
-.top-border-title:before {
-    content:'';
-    display: block;
-    margin: 0 auto;
-    width: 20px;
-    border-top: 3px solid gray;
-    padding-top: 8px;
-}
-
-.list-container-computer-index {
-  width: 100%;
-  max-width: 100px;
-}
-
-.center-list {
-  display: flex;
-  justify-content: center;
-  ol {
-    line-height: 2;
+  align-items: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  transition: 0.3s;
+  &:hover {
+  background-color: #ffcb47;
+    }
   }
-  ul {
-    list-style-type: none;
-    padding-left: 0px;
-  }
-}
 
-.shipping-flex {
-  display: flex;
-  justify-content: space-around;
-}
+.computer-text {
+  color: black;
+  font-weight: lighter;
+  font-size: 14px;
+  &:hover {
+  text-decoration: none;
+  color: black;
+    }
+  }
+
+// custom title styles
+.image-right-margin-on-title {
+  margin-right: 15px;
+  }
+
+#saved-builds-title {
+  font-weight: lighter;
+  font-size: 20px;
+  margin-bottom: 12px;
+  }
+
+#uncompleted-builds-title {
+  font-weight: lighter;
+  font-size: 20px;
+  margin-bottom: 12px;
+  }
