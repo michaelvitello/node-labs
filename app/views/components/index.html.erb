@@ -21,7 +21,7 @@
 
 <!-- This is the JS to update price in real-time -->
 
-<% javascript_tag do %>
+<%= javascript_tag do %>
 function submitForm(form, params) {
   form.action = form.action + params
   form.submit()
