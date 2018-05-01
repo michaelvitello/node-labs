@@ -7,7 +7,7 @@
         <div class="name text-center py-2"><%= spec.component.try(:name)&.upcase %></div>
 
         <% if edit_functions && !spec.mandatory? && spec.component_id %>
-          <%= link_to computer_spec_path(@computer.id, spec.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <%= link_to computer_spec_path(@computer.id, spec.id), class: "delete-icon-color", method: :delete, data: { confirm: "Are you sure you want to delete this component?" } do %>
           <i class="fas fa-times delete-icon"></i>
           <% end %>
         <% end %>

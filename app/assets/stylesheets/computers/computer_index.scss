@@ -1,9 +1,12 @@
+// page alignment
 .background-color-computer-index {
   background-color: #EFEFEF;
   padding: 20px 0px 40px 0px;
   min-height: calc(100vh - 100px);
+  // added this min height thing becuase the content on this page can be very dynamic, you can have lots of computers or none
   }
 
+// card styling
 .card-container {
   min-height: 50px;
   background-color: white;
@@ -14,24 +17,7 @@
   transition: 0.3s;
   &:hover {
   background-color: #ffcb47;
-  }
-}
-
-.image-right-margin {
-  margin-right: 15px;
-}
-
-
-#saved-builds-title {
-  font-weight: lighter;
-  font-size: 20px;
-  margin-bottom: 12px;
-  }
-
-#uncompleted-builds-title {
-  font-weight: lighter;
-  font-size: 20px;
-  margin-bottom: 12px;
+    }
   }
 
 .computer-text {
@@ -44,140 +30,19 @@
     }
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.background-color-computer-index {
-  background-color: #EFEFEF;
+// custom title styles
+.image-right-margin-on-title {
+  margin-right: 15px;
   }
 
-// .card-padding-payment {
-//   padding: 0px 0px;
-//   }
+#saved-builds-title {
+  font-weight: lighter;
+  font-size: 20px;
+  margin-bottom: 12px;
+  }
 
-// .middle-line-break-computer-index {
-//   border-left: 6px solid white;
-//   }
-
-// .saved-builds {
-//   height: 100vh;
-//   // margin-left: 60px;
-//   // margin-top: 30px;
-//   p {
-//     margin: 0px;
-//   }
-// }
-
-// .uncompleted-builds {
-//   height: 100vh;
-//   // margin-left: 60px;
-//   // margin-top: 30px;
-//   height: 100vh;
-//   p {
-//     margin: 0px;
-//   }
-// }
-
-
-// // .page-wrapper-computer-index {
-// // max-width: 900px;
-// // margin: 50px auto;
-// // display: flex;
-// // flex-wrap: wrap;
-// // justify-content: space-around;
-// // }
-
-// // .picture-container {
-// // display: flex;
-// // justify-content: center;
-// // }
-
-// // .payment-picture {
-// // width: auto;
-// // height: 400px;
-// // }
-
-// // .title-wrapper {
-// // display: flex;
-// // justify-content: center;
-// // }
-
-// // .top-border-title {
-// // font-size: 20px;
-// // }
-
-// // .top-border-title:before {
-// // content:'';
-// // display: block;
-// // margin: 0 auto;
-// // width: 20px;
-// // border-top: 3px solid gray;
-// // padding-top: 8px;
-// // }
-
-// // .list-container-computer-index {
-// // width: 100%;
-// // max-width: 100px;
-// // }
-
-// // .center-list {
-// // display: flex;
-// // justify-content: center;
-// // ol {
-// // line-height: 2;
-// // }
-// // ul {
-// // list-style-type: none;
-// // padding-left: 0px;
-// // }
-// // }
-
-// // .shipping-flex {
-// // display: flex;
-// // justify-content: space-around;
-// // }
+#uncompleted-builds-title {
+  font-weight: lighter;
+  font-size: 20px;
+  margin-bottom: 12px;
+  }
