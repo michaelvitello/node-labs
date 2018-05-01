@@ -27,6 +27,19 @@
       max-width: 100%;
       padding: 20px;
     }
+    .main-title {
+      margin-top: -148px !important;
+    }
+    .sub-title {
+      margin-top: -75px !important;
+    }
+    .home-btn {
+      left: 1px !important;
+      bottom: 76% !important;
+    }
+    .home-base-line {
+      top: 6% !important;
+    }
   }
 }
 
@@ -61,13 +74,13 @@
 }
 
 .home-base-line {
-  width: 100%;
+  // width: 100%;
   max-width: 500px;
   font-size: 16px;
-  margin-top: -25px;
+  // margin-top: -25px;
   color: $gray;
   position: absolute;
-  top: 10%;
+  top: 8%;
   height: 100px;
   font-family: "Roboto", sans-serif;
 }
