@@ -1,3 +1,9 @@
+.background-color-computer-index {
+  background-color: #EFEFEF;
+  padding: 20px 0px 40px 0px;
+  min-height: calc(100vh - 100px);
+  }
+
 .card-container {
   min-height: 50px;
   background-color: white;
@@ -15,11 +21,6 @@
   margin-right: 15px;
 }
 
-.background-color-computer-index {
-  background-color: #EFEFEF;
-  padding: 20px 0px 40px 0px;
-  margin-bottom: 30px;
-  }
 
 #saved-builds-title {
   font-weight: lighter;
