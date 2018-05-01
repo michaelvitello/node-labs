@@ -2,14 +2,22 @@
 
   <div class="container first-container">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12 hidden-sm">
         <div class="home-image-div">
 
           <%= image_tag("larger-images/home-page-image.png", class: "home-image",  :alt => "video-games") %>
         </div>
 
         <div class="home-div">
-          <div class="main-container"></div>
+          <div class="main-title">Node Labs</div>
+          <div class="sub-title">The ultimate path to your dream gaming machine.</div>
+          <div class="home-base-line">Create your custom gaming computer with a few simple steps. No experience, no worries. </div>
+
+          <%= link_to "Start Now", computers_path, method: :create, class: "btn btn btn-primary home-btn"  %>
+        </div>
+      </div>
+      <div class="col-xs-12 visible-sm">
+        <div class="home-div">
           <div class="main-title">Node Labs</div>
           <div class="sub-title">The ultimate path to your dream gaming machine.</div>
           <div class="home-base-line">Create your custom gaming computer with a few simple steps. No experience, no worries. </div>
@@ -26,36 +34,30 @@
     <div class="row help-first-row">
       <div class="col-sm-12">
         <div class="home-help-title">Not sure where to start?</div>
-        <div class="home-help-baseline">Don't worry. We're here to help.</div>
+        <div class="home-help-baseline">Don't worry, we're here to help.</div>
       </div>
     </div>
-      <div class="row help-second-row">
-        <div class="col-sm-4">
-          <div class="card home-card" style="width: 100%">
-            <%= image_tag("games/warcraft.jpg", class: "card-img-top") %>
-            <div class="card-body">
-            <a href="#" class="btn btn-primary card-home-btn">Strategy</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-           <div class="card home-card" style="width: 100%">
-            <%= image_tag("games/wow.jpg", class: "card-img-top") %>
-            <div class="card-body">
-            <a href="#" class="btn btn-primary card-home-btn">MMORPG</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="card home-card" style="width: 100%">
-            <%= image_tag("games/counter-strike.jpg", class: "card-img-top") %>
-            <div class="card-body">
-            <a href="#" class="btn btn-primary card-home-btn">FPS</a>
-            </div>
-          </div>
+    <div class="card-deck">
+      <div class="card">
+        <%= image_tag("games/fortnite.jpg", class: "card-img-top") %>
+        <div class="card-body">
+          <h5 class="card-title">FPS</h5>
         </div>
       </div>
-   </div>
+      <div class="card">
+        <%= image_tag("games/far-cry-5.jpg", class: "card-img-top") %>
+        <div class="card-body">
+          <h5 class="card-title">ACTION</h5>
+        </div>
+      </div>
+      <div class="card">
+        <%= image_tag("games/dota.jpg", class: "card-img-top") %>
+        <div class="card-body">
+          <h5 class="card-title">MOBA</h5>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="footer-position-relative">
