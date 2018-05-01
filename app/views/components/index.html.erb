@@ -9,7 +9,7 @@
 
             <% if !Category::MANDATORIES.include?(@category.slug) %>
               <p class="top-div-text">
-              <span class="optional-steps"> Optional</span> Step <%= @current_step %>: Choose your <%= @category.display_name.singularize %> </p>
+               <%= image_tag("icons/#{@category.slug}.png", class: "category-icon")%> Step <%= @current_step %>: Choose your <%= @category.display_name.singularize%><span class="optional-steps">(Optional)</span> </p>
             <% else %>
               <p class="top-div-text">
                 <%= image_tag("icons/#{@category.slug}.png", class: "category-icon")%>
