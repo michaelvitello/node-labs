@@ -1,5 +1,5 @@
 class SpecsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :update
+  skip_before_action :authenticate_user!, only: [:update, :destroy]
 
   def show
   end
