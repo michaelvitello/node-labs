@@ -72,12 +72,32 @@
   font-family: "Roboto", sans-serif;
 }
 
-.home-image {
-  max-width: 700px;
-  max-height: 700px;
+#home-image {
+  width: 637px;
+  height: 950px;
+  // max-width: 700px;
+  // max-height: 700px;
   overflow: hidden;
   margin-top: 60px;
   margin-left: 40px;
+  display: inline-block;
+  background: asset-url('sprite-fan.png') no-repeat;
+  // background-size: 70%;
+  overflow: hidden;
+  text-indent: -9999px;
+  text-align: left;
+
+    &.step-0 { background-position: -0px -0px; }
+    &.step-1 { background-position: -637px -0px; }
+    &.step-2 { background-position: -1274px -0px; }
+    &.step-3 { background-position: -0px -950px; }
+    &.step-4 { background-position: -637px -950px; }
+    &.step-5 { background-position: -1274px -950px; }
+    &.step-6 { background-position: -0px -1900px; }
+    &.step-7 { background-position: -637px -1900px; }
+    &.step-8 { background-position: -1274px -1900px; }
+    &.step-9 { background-position: -0px -2850px; }
+    &.step-10 { background-position: -637px -2850px; }
 }
 
 
@@ -245,36 +265,3 @@
 .card-body {
   text-align: center;
 }
-
-
-// @media screen and (min-width: 801px) {
-//   .home-div2 {
-//     position: relative;
-//     width: 100%;
-//     height: 350px;
-//     border-radius: 5px;
-//     margin-top: 20px;
-//     display: flex;
-
-//     img {
-//       max-height: 220px;
-//       max-width: 220px;
-//       margin-left: 65%;
-//     }
-//   }
-// }
-
-// @media screen and (max-width: 800px) {
-//   .home-div2 {
-//     position: relative;
-//     width: 100%;
-//     height: 350px;
-//     border-radius: 5px;
-//     margin-top: 20px;
-//     display: flex;
-
-//     img {
-//       display: none;
-//     }
-//   }
-// }
