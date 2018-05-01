@@ -9,7 +9,7 @@
       </div>
 
       <div class="pricing-footer">
-        <img src="https://www.scan.co.uk/images/infopages/corsair_cases/570x-top.png" alt="current-case">
+        <%= image_tag ("cases/cases-#{@case_number}-main.png"), class: "footer-image"%>
         <p><%= humanized_money_with_symbol(@computer.total_price) %></p>
         <div class="empty"></div>
 

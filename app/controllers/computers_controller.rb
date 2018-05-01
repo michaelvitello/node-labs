@@ -10,6 +10,8 @@ class ComputersController < ApplicationController
   def show
     @computer = Computer.find(params[:id])
 
+    save_case_number
+
     @specs_with_component = @computer.specs.with_component
     @specs_without_component = @computer.specs.without_component
     session[:new_computer_id] = @computer.id
@@ -46,6 +48,8 @@ class ComputersController < ApplicationController
     @computer = Computer.find(params[:id])
   end
 
-
+  def save_case_number
+    @case_number = @computer.specs.where(category_id: 1).first.component&.rating
+  end
 
 end
