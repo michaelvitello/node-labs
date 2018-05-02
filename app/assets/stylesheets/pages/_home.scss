@@ -125,7 +125,7 @@
   position: absolute;
   height: 370px;
   border-radius: 5px;
-  margin-top: 0px;
+  margin-top: 73px;
   /* justify-content: center; */
   /* align-items: center; */
   top: 829px;
@@ -184,6 +184,17 @@
   text-align: center;
   font-size: 21px;
   font-family: "Roboto", sans-serif;
+}
+
+.home-question-text {
+  margin-top: 45px;
+  padding-bottom: 3px;
+  border-bottom: #bbbbbb solid 1px;
+  font-size: 16px;
+  font-weight: 300;
+  color: #111111;
+  opacity: 0.9;
+
 }
 
 .help-home-btn {
@@ -289,35 +300,46 @@
 }
 
 .card-deck {
+  margin-top: 32px;
   opacity: 0;
   transition: 0.5s;
 }
 
-.banner {
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 90vh;
+.top-banner-div {
+  background-color: #ffcb47;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction: column;
   text-align: center;
-  position: relative;
+  height: 715px;
+}
+
+.banner {
+  bottom: 0;
+  overflow: hidden;
+  margin-top: 30px;
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // display: flex;
+  // justify-content: space-around;
+  // align-items: center;
+  // text-align: center;
+  // position: relative;
+  // max-height: 388px;
 }
 
 .banner-content {
-  color: rgba(255,255,255, 0.3);
-  position: absolute;
-  top: 105px;
+  // color: rgba(255,255,255, 0.7);
+  margin-top: 75px;
+  flex-grow: 1;
 
-}
-.banner-content p {
-  padding-bottom: 20px;
-  font-size: 28px;
-  font-weight: 400;
-  opacity: 0.8;
-  color: white;
-  margin-top: -15px;
-
+  p {
+    padding-bottom: 20px;
+    font-size: 30px;
+    font-weight: 300;
+    // opacity: 0.8;
+    color: white;
+    margin-top: -15px;
+  }
 }
 
 .banner-content h1 {
