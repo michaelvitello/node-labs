@@ -6,7 +6,7 @@
   }
 
 .padding-top-bottom-payment-new {
-  padding: 20px 0px;
+  padding: 20px 0px 70px 0px;
   }
 
 .padding-bottom-table {
@@ -46,16 +46,18 @@
 // card styling
 
 .name-category-item {
-  min-height: 120px;
+  min-height: 130px;
   position: relative;
   background-color: white;
+  border-radius: 3px 3px 0px 0px;
   }
 
 .price-btn-item {
-  background-color: #e0e0e0;
+  background-color: #B3B0B0;
   position: relative;
   height: 40px;
   transition: 0.3s;
+  border-radius: 0px 0px 2px 2px;
   &:hover {
     background-color: #ffcb47;
     }
@@ -74,7 +76,8 @@
 
 .name {
   font-weight: bold;
-  font-size: 15px;
+  font-size: 12px;
+  margin: 0px 8px;
 }
 
 .component-icons {
@@ -90,11 +93,11 @@
   }
 
 .middle-line-break {
-  border-left: 6px solid white;
+  // border-left: 6px solid white;
   }
 
 .shipping-info-wrapper {
-  border-top: 6px solid white;
+  // border-top: 6px solid white;
   }
 
 .additional-information {
