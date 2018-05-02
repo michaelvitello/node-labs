@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180430004555) do
+ActiveRecord::Schema.define(version: 20180502054756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20180430004555) do
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "component_game_categories", force: :cascade do |t|
+    t.bigint "component_id"
+    t.bigint "game_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["component_id"], name: "index_component_game_categories_on_component_id"
+    t.index ["game_category_id"], name: "index_component_game_categories_on_game_category_id"
   end
 
   create_table "components", force: :cascade do |t|
@@ -41,6 +50,12 @@ ActiveRecord::Schema.define(version: 20180430004555) do
     t.integer "final_price_cents", default: 0, null: false
     t.index ["order_id"], name: "index_computers_on_order_id"
     t.index ["user_id"], name: "index_computers_on_user_id"
+  end
+
+  create_table "game_categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|
@@ -81,6 +96,8 @@ ActiveRecord::Schema.define(version: 20180430004555) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "component_game_categories", "components"
+  add_foreign_key "component_game_categories", "game_categories"
   add_foreign_key "computers", "orders"
   add_foreign_key "computers", "users"
   add_foreign_key "specs", "categories"
