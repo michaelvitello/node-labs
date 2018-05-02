@@ -1,16 +1,23 @@
 <div class="col-xs-12 col-md-6 col-lg-3 card-padding">
   <div class="card-wrapper card-row-margin">
-    <div class="component-item">
+      <% if spec.component_id %>
+        <div class="component-item">
+          <div class="name-category-item">
+          <div style="background-image: url(<%= image_path component_path(spec.category.slug, spec.component.rating )%>);" class="image-background"></div>
+      <% else %>
+        <div class="component-item-blank">
+          <div class="name-category-item-blank">
+      <% end %>
 
-      <div class="name-category-item">
-        <div class="category text-center py-3 text-muted"><%= spec.category.display_name %></div>
-        <div class="name text-center py-2"><%= spec.component.try(:name)&.upcase %></div>
-
-        <% if edit_functions && !spec.mandatory? && spec.component_id %>
-          <%= link_to computer_spec_path(@computer.id, spec.id), class: "delete-icon-color", method: :delete, data: { confirm: "Are you sure you want to delete this component?" } do %>
-          <i class="fas fa-times delete-icon"></i>
+          <div class="category text-center py-3 text-muted"><%= spec.category.display_name %></div>
+          <div class="name text-center py-2"><%= spec.component.try(:name)&.upcase %></div>
+          <% if edit_functions && !spec.mandatory? && spec.component_id %>
+            <%= link_to computer_spec_path(@computer.id, spec.id), class: "delete-icon-color", method: :delete, data: { confirm: "Are you sure you want to delete this component?" } do %>
+            <i class="fas fa-times delete-icon"></i>
+            <% end %>
           <% end %>
-        <% end %>
+
+
       </div>
 
       <div class="price-btn-item py-2">

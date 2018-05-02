@@ -1,3 +1,6 @@
+// variables
+$item-height: 130px;
+
 // overall style and alignment of page
 
 .background-color-computer-show {
@@ -30,11 +33,40 @@
 // card styling
 
 .name-category-item {
-  min-height: 120px;
+  min-height: $item-height;
   position: relative;
   background-color: white;
   border-radius: 3px 3px 0px 0px;
   }
+
+.name-category-item-blank {
+  min-height: $item-height;
+  position: relative;
+  background-color: white;
+  border-radius: 3px 3px 0px 0px;
+  }
+
+.image-background {
+  position: relative;
+  border-radius: 3px 3px 0px 0px;
+  background-color: white;
+  opacity: 0;
+}
+
+.component-item:last-child:hover {
+  .category,
+  .name {
+    display: none;
+  }
+
+  .image-background {
+    opacity: 1;
+    height: $item-height;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
 
 .delete-icon {
   position: absolute;
