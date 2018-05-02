@@ -23,7 +23,7 @@
   </div>
 </div>
 <div class="pricing-footer">
-    <img src="https://www.scan.co.uk/images/infopages/corsair_cases/570x-top.png" alt="current-case">
+    <%= image_tag component_path(:cases, @computer.case_number), class: "footer-image"%>
     <p><%= humanized_money_with_symbol(@computer.total_price) %></p>
     <div class="empty"></div>
     <%= form_tag order_payments_path(@order) do %>
