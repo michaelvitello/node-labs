@@ -87,6 +87,7 @@
 }
 
 #home-image {
+  display: none;
   width: 479px;
   height: 700px;
   // max-width: 700px;
@@ -94,7 +95,7 @@
   overflow: hidden;
   margin-top: 60px;
   margin-left: 40px;
-  display: inline-block;
+  // display: inline-block;
   background: asset-url('sprite-fan.png') no-repeat;
   // background-size: 70%;
   overflow: hidden;
@@ -114,6 +115,10 @@
 }
 
 #speed {
+  display: none;
+}
+
+.lazy {
   display: none;
 }
 
