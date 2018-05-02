@@ -1,41 +1,51 @@
 <div class="background-color-payment-new">
   <div class="padding-top-bottom-payment-new">
-    <div class="container padding-bottom-table">
-      <h3 id="payment-computer-title">Build summary</h3>
+    <div class="container">
       <div class="row">
-        <% @computer.sorted_specs.select(&:component).each do |spec| %>
-          <%= render "components/spec", spec: spec, edit_functions: false %>
-        <% end %>
-      </div>
-    </div>
-    <div class="shipping-info-wrapper my-4">
-      <div class="container">
-        <div class="row">
-          <div class="col card-padding-payment">
-            <div class="delivery-address"><h3 id="shipping-title">Delivery address</h3><p>📍 35 North Road, Brighton 3186</p><p>✈️ Express postage</p><p>🎉 Package excepted arrival in <span style="text-decoration:underline";>5 days</span></p></div>
+        <div class="col-xs-12 col-lg-10">
+          <div class="container padding-bottom-table">
+            <h3 id="payment-computer-title">Build summary</h3>
+            <div class="row">
+              <% @computer.sorted_specs.select(&:component).each do |spec| %>
+              <%= render "components/spec", spec: spec, edit_functions: false %>
+              <% end %>
+
+            </div>
           </div>
-          <div class="col card-padding-payment middle-line-break">
-            <div class="additional-information"><h3 id="additional-info-title">Additional information</h3><p>📦 Free shipping<p>🖥 Product dimensions: 20 x 15 x 22 cm</p><p>💪 Boxed-product weight: 14.2 kg</p></div>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <div class="shipping-info-wrapper my-4">
+            <div class="container">
+              <div class="row">
+                <div class="col card-padding-payment">
+                  <div class="delivery-address"><h3 id="shipping-title">Delivery address</h3><p>📍 35 North Road, Brighton 3186</p><p>✈️ Express postage</p><p>🎉 Package excepted arrival in 5 days</p></div>
+                </div>
+                <div class="col card-padding-payment middle-line-break">
+                  <div class="additional-information"><h3 id="additional-info-title">Additional information</h3><p>📦 Free shipping<p>🖥 Product dimensions: 20 x 15 x 22 cm</p><p>💪 Boxed-product weight: 14.2 kg</p></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 <div class="pricing-footer">
-    <%= image_tag component_path(:cases, @computer.case_number), class: "footer-image"%>
-    <p><%= humanized_money_with_symbol(@computer.total_price) %></p>
-    <div class="empty"></div>
-    <%= form_tag order_payments_path(@order) do %>
-      <button type="submit" class="btn btn-buy">Pay</button>
-      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-      data-name="My Computer"
-      data-email=<%= current_user.email %>
-      data-description="Computer <%= @order.computer_sku %>"
-      data-amount="<%= @order.amount_cents %>"
-      data-currency="AUD"></script>
-    <% end %>
+  <%= image_tag component_path(:cases, @computer.case_number), class: "footer-image"%>
+  <p><%= humanized_money_with_symbol(@computer.total_price) %></p>
+  <div class="empty"></div>
+  <%= form_tag order_payments_path(@order) do %>
+    <button type="submit" class="btn btn-buy">Pay</button>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-name="My Computer"
+    data-email=<%= current_user.email %>
+    data-description="Computer <%= @order.computer_sku %>"
+    data-amount="<%= @order.amount_cents %>"
+    data-currency="AUD"></script>
+  <% end %>
 </div>
 
 

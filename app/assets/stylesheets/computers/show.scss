@@ -33,6 +33,7 @@
   min-height: 120px;
   position: relative;
   background-color: white;
+  border-radius: 3px 3px 0px 0px;
   }
 
 .delete-icon {
@@ -49,10 +50,11 @@
 }
 
 .price-btn-item {
-  background-color: #e0e0e0;
+  background-color: #B3B0B0;
   position: relative;
   height: 40px;
   transition: 0.3s;
+  border-radius: 0px 0px 2px 2px;
   &:hover {
     background-color: #ffcb47;
     }
@@ -92,7 +94,8 @@
 
 .name {
   font-weight: bold;
-  font-size: 15px;
+  font-size: 12px;
+  margin: 0px 8px;
   }
 
 .price {
