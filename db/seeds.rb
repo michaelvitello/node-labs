@@ -1,8 +1,5 @@
 puts 'Cleaning database...'
 
-Category.destroy_all
-Component.destroy_all
-
 puts 'Creating categories...'
 
 categories_attributes = [
@@ -62,6 +59,14 @@ end
 
 puts 'Done'
 puts 'Creating components...'
+
+game_categories = [
+  'FPS',
+  'MOBA',
+  'Action'
+  ].each do |category|
+    GameCategory.create!(name: category)
+  end
 
 components_attributes = [
   {
@@ -319,7 +324,15 @@ components_attributes = [
 ]
 
 components_attributes.each do |component|
-  Component.create!(component)
+  new_component = Component.create!(component)
+
+  if new_component.rating == 1
+    new_component.game_categories << GameCategory.find_by(name: 'FPS')
+  elsif new_component.rating == 2
+    new_component.game_categories << GameCategory.find_by(name: 'MOBA')
+  else
+    new_component.game_categories << GameCategory.find_by(name: 'Action')
+  end
 end
 
 puts 'Done'
