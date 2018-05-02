@@ -1,4 +1,4 @@
-class ErrorsController < ApplicationController
+class ErrorsController < ActionController::Base
   layout 'error'
 
   def show

@@ -31,7 +31,6 @@
     </div>
   </div>
 </div>
-
 <div class="container">
   <div class="home-div3">
     <div class="row help-first-row">
@@ -43,22 +42,28 @@
     </div>
     <div class="card-deck">
       <div class="card">
-        <%= image_tag("games/fortnite.jpg", class: "card-img-top") %>
-        <div class="card-body">
-          <h5 class="card-title">FPS</h5>
-        </div>
+        <%= link_to computers_path(game_category: :fps), method: :create  do %>
+          <%= image_tag("games/fortnite.jpg", class: "card-img-top") %>
+          <div class="card-body">
+            <h5 class="card-title">FPS</h5>
+          </div>
+        <% end %>
       </div>
       <div class="card">
+        <%= link_to computers_path(game_category: :action), method: :create  do %>
         <%= image_tag("games/far-cry-5.jpg", class: "card-img-top") %>
         <div class="card-body">
           <h5 class="card-title">ACTION</h5>
         </div>
+        <% end %>
       </div>
       <div class="card">
+        <%= link_to computers_path(game_category: :moba), method: :create  do %>
         <%= image_tag("games/dota.jpg", class: "card-img-top") %>
         <div class="card-body">
           <h5 class="card-title">MOBA</h5>
         </div>
+        <% end %>
       </div>
     </div>
   </div>

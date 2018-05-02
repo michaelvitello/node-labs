@@ -111,6 +111,7 @@
 
 .component-name {
   font-weight: bolder;
+  margin-top: 15px;
 }
 
 .component-picture {
@@ -146,7 +147,7 @@
   z-index: 97;
   text-align: center;
   padding: 50px;
-  height: 218px;
+  height: 201px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -202,3 +203,22 @@
   color: black;
   border-left: $yellow solid 15px;
 }
+
+.recommended-category {
+  display: block;
+  margin-bottom: 0;
+  cursor: pointer;
+  button, input {
+    display: none;
+  }
+}
+
+.recommended-text {
+  position: absolute;
+  color: black;
+  top: 2px;
+  left: 2px;
+  font-size: 11px;
+  padding: 10px;
+}
+
