@@ -2,27 +2,22 @@
   <div class="padding-top-bottom-payment-new">
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-lg-10">
+        <div class="col-xs-12 col-lg-8">
           <div class="container padding-bottom-table">
             <h3 id="payment-computer-title">Build summary</h3>
             <div class="row">
               <% @computer.sorted_specs.select(&:component).each do |spec| %>
               <%= render "components/spec", spec: spec, edit_functions: false %>
               <% end %>
-
             </div>
           </div>
         </div>
-        <div class="col-xs-12 col-lg-2">
+        <div class="col-xs-12 col-lg-4">
           <div class="shipping-info-wrapper my-4">
             <div class="container">
-              <div class="row">
-                <div class="col card-padding-payment">
-                  <div class="delivery-address"><h3 id="shipping-title">Delivery address</h3><p>📍 35 North Road, Brighton 3186</p><p>✈️ Express postage</p><p>🎉 Package excepted arrival in 5 days</p></div>
-                </div>
-                <div class="col card-padding-payment middle-line-break">
-                  <div class="additional-information"><h3 id="additional-info-title">Additional information</h3><p>📦 Free shipping<p>🖥 Product dimensions: 20 x 15 x 22 cm</p><p>💪 Boxed-product weight: 14.2 kg</p></div>
-                </div>
+              <div class="row flex-align-center">
+                <div class="delivery-address"><h3 id="shipping-title">Delivery address</h3><p>📍 35 North Road, Brighton 3186</p><p>✈️ Express postage</p><p>🎉 Package excepted arrival in 5 days</p></div>
+                  <div class="additional-information"><h3 id="additional-info-title">Additional information</h3><p>📦 Free shipping</p><p>🖥 Product dimensions: 20 x 15 x 22 cm</p><p>💪 Boxed-product weight: 14.2 kg</p></div>
               </div>
             </div>
           </div>
