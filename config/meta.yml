@@ -1,6 +1,8 @@
 # config/meta.yml
 
-meta_product_name: "Node labz"
-meta_title: "Node labz - Create your custom gaming computer."
-meta_description: "The ultimate path to your dream gaming machine."
-meta_image: "http://thebubbashow.org/wp-content/uploads/2017/03/google-police.jpg"  # should exist in `app/assets/images/`
+meta_product_name: "Node Labs"
+meta_title: "Node Labs - The ultimate path to your dream gaming machine."
+meta_description: "Create your custom gaming computer with a few simple steps.
+No experience? No worries."
+meta_image: "og-image-v1.png"
+twitter_account: "@be_mika"
