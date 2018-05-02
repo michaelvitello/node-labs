@@ -124,6 +124,11 @@
       margin-right: auto;
       margin-left: auto;
   flex-direction: column;
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 20px;
+  }
 }
 .component-selector {
   flex: 0 0 450px;

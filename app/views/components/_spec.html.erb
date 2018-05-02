@@ -3,7 +3,7 @@
     <div class="component-item">
 
       <div class="name-category-item">
-        <div class="category text-center py-1 text-muted"><%= spec.category.display_name %></div>
+        <div class="category text-center py-3 text-muted"><%= spec.category.display_name %></div>
         <div class="name text-center py-2"><%= spec.component.try(:name)&.upcase %></div>
 
         <% if edit_functions && !spec.mandatory? && spec.component_id %>
@@ -16,7 +16,7 @@
       <div class="price-btn-item py-2">
 
         <div class="component-icons">
-          <%= image_tag "icons/#{spec.category.slug}.png", size:"20"%>
+          <%= image_tag "icons/#{spec.category.slug}.png", size: 20 %>
         </div>
 
         <div class="price">
