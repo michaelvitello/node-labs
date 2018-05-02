@@ -21,9 +21,13 @@
 
 // Payments CSS
 @import "payments/index";
-
 @import "sign-up-log-in/index";
 
 // Order CSS
 @import "orders/show";
+
+// Error pages
+@import "errors/404";
+
 @import "orders/confetti";
+

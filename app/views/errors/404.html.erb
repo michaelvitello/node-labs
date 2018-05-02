@@ -1,0 +1,10 @@
+<div class="error-page">
+    <div class="error-text">
+      <h1>Sorry, it seems like the page you are looking for doesn't exist.</h1>
+    </div>
+  <img class="image-error" src="<%= @images.sample %>" />
+      <br>
+  <%= link_to root_path, { class: "error-text" } do %>
+      <%= "Go back home" %>
+    <% end %>
+</div>

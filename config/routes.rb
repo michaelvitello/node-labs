@@ -10,4 +10,11 @@ Rails.application.routes.draw do
   resources :orders, only: [:show] do
    resources :payments, only: [:new, :create]
   end
+
+   # error pages
+  %w( 404 422 500 503 ).each do |code|
+    get code, :to => "errors#show", :code => code
+  end
+
+  get '*unmatched_route', to: 'errors#show', code: 404
 end
