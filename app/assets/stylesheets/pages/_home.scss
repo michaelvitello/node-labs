@@ -26,6 +26,7 @@
       width: 100vh !important;
       max-width: 100%;
       padding: 20px;
+      opacity: 1;
     }
     .main-title {
       margin-top: -148px !important;
@@ -149,6 +150,8 @@
   top: 30%;
   left: 40%;
   width: 700px;
+  transition: 1.5s;
+  opacity: 0;
 }
 
 .home-div3 {
@@ -302,4 +305,9 @@
 
 .card-body {
   text-align: center;
+}
+
+.card-deck {
+  opacity: 0;
+  transition: 0.5s;
 }
