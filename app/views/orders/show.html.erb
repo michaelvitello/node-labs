@@ -1,16 +1,16 @@
-<div class="order-container">
-  <h2 class="order-done">Payment successful! Our team is picking up your order and we will notify you as soon as we ship your gaming machine! </h2>
+<div class="wrapper-confetti">
+  <div class="order-container">
+    <h2 class="order-done">Payment successful! Our team is picking up your order and we will notify you as soon as we ship your gaming machine! </h2>
 
-  <div class="order-home">
-    <%= link_to "Home", root_path %>
+    <div class="order-home">
+      <%= link_to "Home", root_path %>
+    </div>
+
+    <%= image_tag("larger-images/completed-computer.png", :alt => "video-games") %>
   </div>
 
-  <%= image_tag("larger-images/case-large.png", :alt => "video-games") %>
-
+  <div class="footer-position">
+    <%= render 'layouts/footer' %>
+  </div>
 </div>
-
-<div class="footer-position">
-  <%= render 'layouts/footer' %>
-</div>
-
 
