@@ -2,10 +2,11 @@
 
 .background-color-payment-new {
   background-color: #EFEFEF;
+  min-height: calc(100vh - 100px);
   }
 
 .padding-top-bottom-payment-new {
-  padding: 60px 0px 30px 0px;
+  padding: 20px 0px;
   }
 
 .padding-bottom-table {
@@ -27,7 +28,7 @@
 #payment-computer-title {
   font-weight: lighter;
   font-size: 23px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   }
 
 #shipping-title {
@@ -45,7 +46,7 @@
 // card styling
 
 .name-category-item {
-  min-height: 90px;
+  min-height: 120px;
   position: relative;
   background-color: white;
   }
@@ -53,7 +54,7 @@
 .price-btn-item {
   background-color: #e0e0e0;
   position: relative;
-  height: 35px;
+  height: 40px;
   transition: 0.3s;
   &:hover {
     background-color: #ffcb47;
@@ -67,7 +68,7 @@
 .price {
   color: white;
   position: absolute;
-  top: 7px;
+  top: 10px;
   left: 60px;
   }
 
@@ -78,7 +79,7 @@
 
 .component-icons {
   position: absolute;
-  top: 6px;
+  top: 8px;
   left: 20px;
   }
 
