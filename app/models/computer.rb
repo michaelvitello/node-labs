@@ -1,7 +1,7 @@
 class Computer < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :order, optional: true
-  has_many :specs
+  has_many :specs, dependent: :destroy
   has_many :components, through: :specs
 
   monetize :final_price_cents

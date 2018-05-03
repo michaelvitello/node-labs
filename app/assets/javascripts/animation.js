@@ -12,5 +12,3 @@ const animate = function() {
       div.className = '';
       div.classList.add("img-" + frameOffset) }, 12);
 };
-
-document.addEventListener("DOMContentLoaded", animate);

@@ -3,7 +3,7 @@ class ComputersController < ApplicationController
   before_action :set_computers, only: [:show, :destroy]
 
   def index
-    @computers = current_user.computers
+    @computers = current_user.clear_dummy_computers!
   end
 
   def show
