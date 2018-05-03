@@ -41,6 +41,10 @@ GEM
     arel (8.0.0)
     autoprefixer-rails (8.4.1)
       execjs
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
     bcrypt (3.1.11)
     better_errors (2.4.0)
       coderay (>= 1.0.0)
@@ -57,6 +61,7 @@ GEM
     byebug (10.0.2)
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
+    connection_pool (2.2.1)
     crass (1.0.4)
     debug_inspector (0.0.3)
     devise (4.4.3)
@@ -174,6 +179,12 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    react-rails (2.4.4)
+      babel-transpiler (>= 0.7.0)
+      connection_pool
+      execjs
+      railties (>= 3.2)
+      tilt
     redis (4.0.1)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
@@ -252,6 +263,7 @@ DEPENDENCIES
   pundit
   rack
   rails (= 5.1.6)
+  react-rails
   redis
   sass-rails
   simple_form
