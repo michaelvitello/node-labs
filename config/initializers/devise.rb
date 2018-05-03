@@ -260,7 +260,7 @@ Devise.setup do |config|
   config.omniauth :twitch, ENV["TWITCH_CLIENT_ID"],
                            ENV["TWITCH_CLIENT_SECRET"],
                            redirect_uri:
-                           'http://localhost:3000/users/auth/twitch/callback'
+                           'http://localhost:3000/users/auth/twitch/callback', token_params: { parse: :json }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

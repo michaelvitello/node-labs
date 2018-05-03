@@ -10,6 +10,9 @@
     }
 }
 
+.country-selector{
+  display: none;
+}
 
 
 .first-container {
@@ -162,8 +165,8 @@
   font-size: 16px;
   font-weight: 300;
   color: #111111;
-  opacity: 0.9;
-
+  opacity: 0;
+  transition: 0.9s;
 }
 
 .help-home-btn {
@@ -276,7 +279,7 @@
 .card-deck {
   margin-top: 32px;
   opacity: 0;
-  transition: 0.5s;
+  transition: 0.9s;
 }
 
 .top-banner-div {

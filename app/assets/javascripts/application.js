@@ -14,8 +14,10 @@ document.addEventListener('DOMContentLoaded', componentChanged);
 // Home page only
 if (document.querySelector('body.c_pages.a_home')) {
   document.addEventListener("scroll", homeScroll);
+  document.addEventListener("scroll", step1);
   document.addEventListener("DOMContentLoaded", animate);
-  document.addEventListener("DOMContentLoaded", homeDivFadeIn);
+  document.addEventListener("scroll", homeDivFadeIn);
+
 };
 
 // Orders#show only
