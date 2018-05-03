@@ -283,7 +283,10 @@
 }
 
 .top-banner-div {
-  background-color: #ffcb47;
+  background-image: radial-gradient(
+      #ffcb47,
+      #ffa258
+    );
   display: flex;
   flex-direction: column;
   text-align: center;
