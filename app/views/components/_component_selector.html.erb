@@ -1,16 +1,16 @@
 <div class="component-selector">
   <% @components.each_with_index do |component, index| %>
-  <% user_has_selected_category = component.game_categories.any? { |gc| gc.name.downcase == session[:user_game_category] } %>
+  <% categories = component.game_categories.pluck(:name).map(&:underscore) %>
     <%= f.label :"component_id_#{component.id}",
-      class: "#{ user_has_selected_category ? 'recommended-category' : 'big-label'}" do %>
+      class: "#{ categories.include?(session[:user_game_category]) ? 'recommended-category' : 'big-label'}" do %>
     <%= f.radio_button :component_id, component.id, class: "component-button" %>
-    <div class="components <%= index == 0 ? 'first' : '' %>">
+    <div class="components <%= index == 0 ? 'first' : '' %> <%= categories.join(' ') %>">
       <div class="component-picture">
         <%= image_tag(component_image_path(component), alt: @category.display_name, class: "inner-image") %>
       </div>
       <div class="component-details">
-         <% if user_has_selected_category %>
-            <span class="recommended-text">recommended for <%= "#{session[:user_game_category]}"%></span>
+         <% categories.each do |category| %>
+            <span class="recommended-text">Recommended for <%= category.upcase %></span>
          <% end %>
         <div class="component-name"><%= component.name %></div>
         <%= component_price_tag(component) %>
