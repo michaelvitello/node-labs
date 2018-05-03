@@ -1,3 +1,5 @@
+<% content_for :meta_title, "Node Labs | #{@spec.category.display_name}" %>
+
 <%= simple_form_for [@computer, @spec] do |f| %>
   <div class="main-container">
     <%= render 'image_container', f: f %>
