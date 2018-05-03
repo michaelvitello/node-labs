@@ -1,8 +1,16 @@
 <div class="component-selector">
   <% @components.each_with_index do |component, index| %>
   <% user_has_selected_category = component.game_categories.any? { |gc| gc.name.downcase == session[:user_game_category] } %>
-    <%= f.label :"component_id_#{component.id}",
-      class: "#{ user_has_selected_category ? 'recommended-category' : 'big-label'}" do %>
+
+    <% if user_has_selected_category %>
+      <% options = { class: "recommended-category", data: {toggle: "tooltip", placement: "left" }, title: "Most suited based on your selection" } %>
+    <% else %>
+      <% options = { class: "big-label" }  %>
+    <% end %>
+
+    <%= f.label :"component_id_#{component.id}", options do %>
+
+
     <%= f.radio_button :component_id, component.id, class: "component-button" %>
     <div class="components <%= index == 0 ? 'first' : '' %>">
       <div class="component-picture">

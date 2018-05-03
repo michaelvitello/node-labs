@@ -2,6 +2,8 @@
 //= require rails-ujs
 //= require jquery
 //= require jquery-lazy
+//= require popper
+//= require bootstrap-sprockets
 
 //= require_tree .
 
@@ -12,3 +14,7 @@ $(function() {
     }
   });
 });
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
