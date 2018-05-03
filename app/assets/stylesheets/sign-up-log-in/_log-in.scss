@@ -120,3 +120,29 @@
   text-align: center;
   font-weight: 300;
 }
+
+
+.twitchconnect {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  font-size: 15px;
+  font-weight: 300;
+  color: $purple;
+  text-decoration: none;
+
+  a {
+    display: flex;
+    color: $purple;
+    padding-top: 10px;
+    justify-content: center;
+    border: none;
+    width: 100%;
+  }
+
+  a:hover {
+    transition: all .15s ease-in-out;
+    color: #ffcb47;
+    opacity: 0.8;
+  }
+}
