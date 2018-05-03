@@ -16,9 +16,10 @@ if (document.querySelector('body.c_pages.a_home')) {
   document.addEventListener("scroll", homeScroll);
   document.addEventListener("DOMContentLoaded", animate);
   document.addEventListener("DOMContentLoaded", homeDivFadeIn);
-}
+};
 
 // Orders#show only
-if (document.querySelector('body.c_orders.a_show'))
+if (document.querySelector('body.c_orders.a_show')) {
   document.addEventListener('DOMContentLoaded', dropConfetti);
+}
 
