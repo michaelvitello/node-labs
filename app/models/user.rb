@@ -13,6 +13,7 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
       user.token = auth.credentials.token
     end
+  end
 
   def clear_dummy_computers!
     computers.map do |computer|
