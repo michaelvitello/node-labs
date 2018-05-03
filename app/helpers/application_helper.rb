@@ -25,7 +25,7 @@ module ApplicationHelper
 
     if categories.include?(session[:user_game_category])
       options[:class] = 'recommended-category'
-      options[:data]  = {toggle: "tooltip", placement: "left" }
+      options[:data]  = {toggle: "tooltip", placement: "left", boundary: "window" }
       options[:title] = "Most suited based on your selection"
     end
 
