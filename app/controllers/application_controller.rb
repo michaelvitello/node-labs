@@ -15,8 +15,9 @@ class ApplicationController < ActionController::Base
   # Assigns last made computer to the newly logged in user.
   def after_sign_in_path_for(resource)
     if session[:new_computer_id]
-      current_computer = Computer.find(session[:new_computer_id])
-      current_computer.update(user_id: current_user.id)
+      current_computer = Computer.find_by(id: session[:new_computer_id])
+      current_computer.update(user_id: current_user.id) if current_computer
+      session[:new_computer_id] = nil
     end
     # Stores location after sign in for current user
     stored_location_for(:user) || super
