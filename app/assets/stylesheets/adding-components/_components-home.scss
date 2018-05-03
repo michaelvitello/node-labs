@@ -211,15 +211,29 @@
   button, input {
     display: none;
   }
+
+  .components {
+    // border-left: $yellow solid 15px;
+    border-left: $dark-purple solid 15px;
+  }
+  .recommended-text {
+    display: block;
+  }
 }
 
 .recommended-text {
   position: absolute;
-  color: black;
-  top: 2px;
+  color: $dark-purple;
+  border-radius: 4px;
+  border: $dark-purple solid 1px;
+  background-color: white;
+  bottom: 15px;
+  margin-left: 46px;
   left: 2px;
-  font-size: 11px;
-  padding: 10px;
+  font-size: 10px;
+  padding: 5px 8px;
+  font-weight: 400;
+  display: none;
 }
 
 // styles for tooltips

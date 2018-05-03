@@ -28,4 +28,3 @@ componentOptions.forEach(function(option) {
   })
 })
 
-document.addEventListener('DOMContentLoaded', componentChanged);
