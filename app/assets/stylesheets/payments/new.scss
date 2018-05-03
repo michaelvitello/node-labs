@@ -31,7 +31,8 @@ $item-height: 130px;
 #payment-computer-title {
   font-weight: lighter;
   font-size: 23px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  margin-top: 22px;
   }
 
 #shipping-title {
@@ -101,10 +102,11 @@ $item-height: 130px;
 
 .shipping-info-wrapper {
   // border-top: 6px solid white;
+  margin-left: 35px;
   }
 
 .additional-information {
-  margin-top: 16px;
+  margin-top: 40px;
   margin-left: 20px;
   margin-bottom: 35px;
   p {
@@ -116,7 +118,7 @@ $item-height: 130px;
   }
 
 .delivery-address {
-  margin-top: 16px;
+  margin-top: 40px;
   margin-bottom: 35px;
   margin-left: 20px;
   p {
