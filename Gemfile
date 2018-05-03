@@ -21,6 +21,10 @@ gem 'webpacker'
 gem 'stripe'
 gem 'devise'
 gem 'pundit'
+gem 'faraday'
+gem 'rack'
+gem 'omniauth-twitch'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

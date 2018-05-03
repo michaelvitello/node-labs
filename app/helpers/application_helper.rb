@@ -19,4 +19,16 @@ module ApplicationHelper
   def component_path(slug, rating)
     "#{slug}/#{slug}-#{rating}-main.png"
   end
+
+  def label_options(categories)
+    options = { class: 'big-label' }
+
+    if categories.include?(session[:user_game_category])
+      options[:class] = 'recommended-category'
+      options[:data]  = {toggle: "tooltip", placement: "left", boundary: "window" }
+      options[:title] = "Most suited based on your selection"
+    end
+
+    options
+  end
 end

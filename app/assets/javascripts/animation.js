@@ -6,11 +6,9 @@
 // //   return Number(document.getElementById('speed').value);
 // // }
 
-// const animate = function() {
-//   setInterval(function () {
-//       let frameOffset = (++frame % frames);
-//       div.className = '';
-//       div.classList.add("img-" + frameOffset) }, 12);
-// };
+const animate = function() {
+  setInterval(function () {
+      let frameOffset = (++frame % frames);
+      div.className = '';
+      div.classList.add("img-" + frameOffset) }, 12);
 
-// document.addEventListener("DOMContentLoaded", animate);
