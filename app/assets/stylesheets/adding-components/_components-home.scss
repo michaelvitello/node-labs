@@ -43,24 +43,22 @@
 .main-container {
   display: flex;
 }
-
-.image-container {
+.component-display {
   width: 100%;
-  min-height: 300px;
-  max-height: 700px;
-  background-position: center 33%;
-  background-size: 30%;
-  background-repeat: no-repeat;
-  background-color: $light-gray;
+
+  .top-div-text {
+    height: 60px;
+    width: 100%;
+    padding-top: 20px;
+    padding-left: 70px;
+    font-size: 25px;
+  }
 
   .component-infos {
     z-index: 1;
-    position: fixed;
-    bottom: 70px;
     width: 100%;
     text-align: center;
-    padding: 0 450px 0 0;
-    background-color: $light-gray;
+    padding: 0 0 0 0;
 
     .component-description {
       text-align: center;
@@ -85,7 +83,7 @@
         z-index: 100;
         margin: 0 15px;
         border-radius: 2px;
-           &:hover {
+        &:hover {
           background-color: #FFCB47 !important;
           border-color: #FFCB47;
           color: white;
@@ -97,16 +95,18 @@
       }
     }
   }
+
+  .image-container {
+    width: 100%;
+    height: calc(65% - 50px);
+    background-position: center 33%;
+    background-size: 30%;
+    background-repeat: no-repeat;
+  }
 }
 
-.top-div-text {
-  position: relative;
-  top: 0;
-  height: 30px;
-  width: 100%;
-  padding-top: 30px;
-  padding-left: 70px;
-  font-size: 25px;
+body.c_components.a_index {
+  background-color: $light-gray;
 }
 
 .component-name {
@@ -133,7 +133,8 @@
 }
 .component-selector {
   flex: 0 0 450px;
-  height: 95%;
+  height: calc(100vh - 80px);
+  overflow: scroll;
   z-index: 95;
   border-radius: 2px;
   background-color: white;
@@ -235,4 +236,3 @@
   font-weight: 400;
   display: none;
 }
-
