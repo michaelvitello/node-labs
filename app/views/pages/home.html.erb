@@ -9,38 +9,27 @@
 </div>
 
 <div class="main-container-home">
-
   <div class="container first-container">
-    <div class="row">
-      <div class="col-xs-12 hidden-sm">
-        <div class="home-image-div">
-
-          <div class="lazy">
-            <%= image_tag('', data: { src: asset_path("sprite-fan.png") }) %>
+    <div class="h-100 row align-items-center ">
+      <div class="col">
+        <div class="home-div">
+          <div class="home-image-div">
+            <div id="home-image"></div>
+            <div class="lazy">
+              <%= image_tag('', data: { src: asset_path("sprite-fan.png") }) %>
+            </div>
           </div>
-          <div id="home-image"></div>
-        </div>
-
-        <div class="home-div">
-          <div class="main-title">How it works</div>
-          <div class="sub-title">Create your custom gaming computer with a few simple steps. No experience? No worries.</div>
-          <div class="home-base-line"></div>
-
-          <%= link_to "Start Now", computers_path, method: :create, class: "btn btn btn-primary home-btn"  %>
-        </div>
-      </div>
-      <div class="col-xs-12 visible-sm">
-        <div class="home-div">
-          <div class="main-title">Node Labs</div>
-          <div class="sub-title">The ultimate path to your dream gaming machine.</div>
-          <div class="home-base-line">Create your custom gaming computer with a few simple steps. No experience? No worries! </div>
-
-          <%= link_to "Start Now", computers_path, method: :create, class: "btn btn btn-primary home-btn"  %>
+          <div class="home-div-details">
+            <div class="main-title">How it works</div>
+            <div class="sub-title">Create your custom gaming computer in a few simple steps. <br>Delivered straight to your door. <br><br>No experience? No worries.</div>
+            <%= link_to "Start Now", computers_path, method: :create, class: "btn btn btn-primary home-btn"  %>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 <div class="container">
   <div class="home-div3">
     <div class="row help-first-row">
@@ -52,30 +41,36 @@
       </div>
     </div>
     <div class="card-deck">
+
       <div class="card">
         <%= link_to computers_path(game_category: :fps), method: :create  do %>
-          <%= image_tag("games/fortnite.jpg", class: "card-img-top") %>
+          <%= image_tag("games/fortnite.jpg", class: "card-img-top img-fluid") %>
           <div class="card-body">
             <h5 class="card-title">FPS</h5>
           </div>
         <% end %>
       </div>
+
+
       <div class="card">
         <%= link_to computers_path(game_category: :action), method: :create  do %>
-        <%= image_tag("games/far-cry-5.jpg", class: "card-img-top") %>
+        <%= image_tag("games/far-cry-5.jpg", class: "card-img-top img-fluid") %>
         <div class="card-body">
           <h5 class="card-title">ACTION</h5>
         </div>
         <% end %>
       </div>
+
+
       <div class="card">
         <%= link_to computers_path(game_category: :moba), method: :create  do %>
-        <%= image_tag("games/dota.jpg", class: "card-img-top") %>
+        <%= image_tag("games/dota.jpg", class: "card-img-top img-fluid") %>
         <div class="card-body">
           <h5 class="card-title">MOBA</h5>
         </div>
         <% end %>
       </div>
+
     </div>
   </div>
 </div>
