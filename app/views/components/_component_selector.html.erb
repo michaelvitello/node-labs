@@ -1,8 +1,7 @@
 <div class="component-selector">
   <% @components.each_with_index do |component, index| %>
   <% categories = component.game_categories.pluck(:name).map(&:underscore) %>
-    <%= f.label :"component_id_#{component.id}",
-      class: "#{ categories.include?(session[:user_game_category]) ? 'recommended-category' : 'big-label'}" do %>
+    <%= f.label :"component_id_#{component.id}", label_options(categories) do %>
     <%= f.radio_button :component_id, component.id, class: "component-button" %>
     <div class="components <%= index == 0 ? 'first' : '' %> <%= categories.join(' ') %>">
       <div class="component-picture">
