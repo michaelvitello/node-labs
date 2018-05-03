@@ -331,11 +331,11 @@ components_attributes.each do |component|
   ))
 
   if new_component.rating == 1
-    new_component.game_categories << GameCategory.find_by(name: 'FPS')
+    new_component.game_categories << GameCategory.find_by(name: 'Action')
   elsif new_component.rating == 2
     new_component.game_categories << GameCategory.find_by(name: 'MOBA')
   else
-    new_component.game_categories << GameCategory.find_by(name: 'Action')
+    new_component.game_categories << GameCategory.find_by(name: 'FPS')
   end
 
 end
