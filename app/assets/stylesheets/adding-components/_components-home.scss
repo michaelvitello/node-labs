@@ -58,7 +58,11 @@
     z-index: 1;
     width: 100%;
     text-align: center;
-    padding: 0 0 0 0;
+    position: fixed;
+    bottom: 1px;
+    background-color: $light-gray;
+    padding: 0 450px 0 0;
+    margin-bottom: 60px;
 
     .component-description {
       text-align: center;
@@ -98,7 +102,7 @@
 
   .image-container {
     width: 100%;
-    height: calc(65% - 50px);
+    height: 100%;
     background-position: center 33%;
     background-size: 30%;
     background-repeat: no-repeat;
@@ -133,7 +137,6 @@ body.c_components.a_index {
 }
 .component-selector {
   flex: 0 0 450px;
-  height: calc(100vh - 80px);
   overflow: scroll;
   z-index: 95;
   border-radius: 2px;
