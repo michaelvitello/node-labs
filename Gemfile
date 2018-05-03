@@ -24,6 +24,7 @@ gem 'pundit'
 gem 'faraday'
 gem 'rack'
 gem 'omniauth-twitch'
+gem 'react-rails'
 
 
 group :development do

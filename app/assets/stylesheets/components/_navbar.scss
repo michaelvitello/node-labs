@@ -8,6 +8,21 @@
   }
 }
 
+.country-selector {
+  width: 478px;
+  position: absolute;
+  left: 150px;
+
+  select {
+    width: 150px;
+    border-radius: 2px;
+    font-size: 15px;
+    color: #707070;
+    font-weight: 300;
+  }
+
+}
+
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   // background: $dark-purple;
