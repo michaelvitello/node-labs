@@ -17,10 +17,9 @@
 
             <div class="form-actions-signup">
               <%= f.button :submit, "Sign Up" %>
+              <button class="twitchbutton"><i class="fab fa-twitch"></i><%= render "devise/shared/connection_links" %></button>
             </div>
-            <div class="twitchconnect">
-              <%= render "devise/shared/connection_links" %>
-            </div>
+
             <% end %>
           </div>
         </div>
