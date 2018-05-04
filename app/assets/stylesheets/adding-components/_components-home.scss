@@ -113,6 +113,10 @@ body.c_components.a_index {
   background-color: $light-gray;
 }
 
+body.c_orders.a_show {
+  overflow-x: hidden;
+}
+
 .component-name {
   font-weight: bolder;
   margin-top: 15px;
