@@ -20,10 +20,7 @@
 
             <div class="form-actions-login">
               <%= f.button :submit, "Log in" %>
-            </div>
-
-            <div class="twitchconnect">
-              <%= render "devise/shared/connection_links" %>
+              <button class="twitchbutton"><i class="fab fa-twitch"></i><%= render "devise/shared/connection_links" %></button>
             </div>
           <% end %>
 
