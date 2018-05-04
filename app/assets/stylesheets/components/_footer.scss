@@ -121,3 +121,19 @@
     max-width: 20px;
   }
 }
+
+
+.country-selector {
+  width: 478px;
+  //position: absolute;
+  //left: 360px;
+
+  select {
+    width: 150px;
+    border-radius: 2px;
+    font-size: 15px;
+    color: #707070;
+    font-weight: 300;
+    font-size: 14px;
+  }
+}
