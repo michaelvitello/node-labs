@@ -6,7 +6,10 @@ class ComponentsController < ApplicationController
 
     @category = Category.find_by(slug: params["category"])
     @components = @category.components.order('rating DESC')
-    @computer = Computer.find(params["computer_id"])
+    @computer = Computer.find_by(id: params["computer_id"])
+
+    redirect_to root_path and return unless @computer
+
     @spec = @computer.specs.find_by(category_id: @category.id)
 
     @current_step = Spec::STEPS.index(@category.slug)

@@ -8,7 +8,10 @@ class SpecsController < ApplicationController
   end
 
   def update
-    @spec = Spec.find(params[:id])
+    @spec = Spec.find_by(id: params[:id])
+
+    redirect_to root_path and return unless @spec
+
     if @spec.update(spec_params)
       next_step = get_next_step(@spec.category.slug)
       if next_step == :go_to_computer || params[:finished] == "true"
