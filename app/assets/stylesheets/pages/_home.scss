@@ -194,12 +194,14 @@
 }
 
 .card {
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  // box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   background-color: #595266;
+  border: none;
 
   &:hover {
-    box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+    // box-shadow: 0px 2px 3px -7px rgba(0, 0, 0, 0.2), 0px 3px 7px 4px rgba(0, 0, 0, 0.14), 0px 7px 57px 8px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 5px 7px rgba(0.2, 0.2, 0, 0.1);
   }
 
   a {
@@ -207,12 +209,13 @@
   }
 
   .card-body {
-    background-color: #595266;
+    background-color: #ececec;
     height: 63px;
-    border-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
 
     h5 {
-      color: white;
+      color: #7b7b7b;
       font-family: "Montserrat";
     }
   }
@@ -325,6 +328,6 @@
 .banner-content h1 {
   font-size: 85px;
   font-weight: 900;
-  text-shadow: 0px 1px rgba(0,0,0,0.2);
+  text-shadow: 2px 1.5px rgba(0, 0, 0, 0.1);
   color: white;
 }
