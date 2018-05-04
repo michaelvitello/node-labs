@@ -23,10 +23,6 @@ export default class Country extends React.Component {
         <CountryDropdown
           value={country}
           onChange={(val) => this.selectCountry(val)} />
-        <RegionDropdown
-          country={country}
-          value={region}
-          onChange={(val) => this.selectRegion(val)} />
       </div>
     );
   }
