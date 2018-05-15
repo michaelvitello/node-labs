@@ -25,7 +25,7 @@ gem 'faraday'
 gem 'rack'
 gem 'omniauth-twitch'
 gem 'react-rails'
-
+gem 'rest-client'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
