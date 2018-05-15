@@ -113,6 +113,10 @@ body.c_components.a_index {
   background-color: $light-gray;
 }
 
+body.c_orders.a_show {
+  overflow-x: hidden;
+}
+
 .component-name {
   font-weight: bolder;
   margin-top: 15px;
@@ -124,11 +128,12 @@ body.c_components.a_index {
 
 .component-details {
   width: 100%;
-      padding-right: 15px;
-      padding-left: 15px;
-      margin-right: auto;
-      margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
   flex-direction: column;
+
   p {
     margin-top: 0;
     margin-bottom: 1rem;
@@ -212,14 +217,16 @@ body.c_components.a_index {
   display: block;
   margin-bottom: 0;
   cursor: pointer;
-  button, input {
-    display: none;
-  }
 
-  // .components {
-  //   // border-left: $yellow solid 15px;
-  //   border-left: $dark-purple solid 15px;
-  // }
+    button, input {
+      display: none;
+    }
+
+   .components {
+   // border-left: $yellow solid 15px;
+   border-left: #111111 solid 15px;
+   }
+
   .recommended-text {
     display: block;
   }
